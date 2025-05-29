@@ -1,57 +1,69 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background-color: #f9f6f2;
+  background-color: #fdfdfd;
   color: #333;
 }
 
 header {
-  background: linear-gradient(to right, #a87c2f, #d4af37);
+  background: linear-gradient(to right, #8c6b30, #d4af37);
   color: white;
-  padding: 40px 20px;
+  padding: 20px 0;
   text-align: center;
 }
 
-.logo {
-  font-size: 36px;
-  font-weight: bold;
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 }
 
-.slogan {
-  font-size: 18px;
-  margin-top: 5px;
-}
-
-.botao-whatsapp {
-  display: inline-block;
-  margin-top: 20px;
-  background-color: #25D366;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 30px;
+nav ul li a {
   text-decoration: none;
+  color: white;
   font-weight: bold;
 }
 
-main {
-  padding: 30px;
-  max-width: 900px;
-  margin: auto;
-}
-
-h2 {
-  color: #a87c2f;
-  margin-top: 40px;
-}
-
-ul {
-  list-style-type: square;
-  padding-left: 20px;
+section.destaque {
+  padding: 40px;
+  text-align: center;
+  background-color: #faf7f2;
+  border-bottom: 2px solid #e3d8c5;
 }
 
 footer {
-  background-color: #222;
+  background-color: #2e2e2e;
   color: white;
   text-align: center;
-  padding: 15px;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+.redes a {
+  margin: 0 10px;
+  color: #fff2cc;
+  text-decoration: none;
+}
+
+.whatsapp-fixo {
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+  background-color: #25d366;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
 }
