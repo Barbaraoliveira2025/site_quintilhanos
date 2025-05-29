@@ -1,53 +1,57 @@
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f3f3f3;
   margin: 0;
-  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f9f6f2;
   color: #333;
 }
 
 header {
-  background-color: #a87c2f;
+  background: linear-gradient(to right, #a87c2f, #d4af37);
   color: white;
-  padding: 20px;
+  padding: 40px 20px;
   text-align: center;
 }
 
-nav ul {
-  background-color: #444;
-  color: white;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  text-align: center;
+.logo {
+  font-size: 36px;
+  font-weight: bold;
 }
 
-nav ul li {
+.slogan {
+  font-size: 18px;
+  margin-top: 5px;
+}
+
+.botao-whatsapp {
   display: inline-block;
-  margin: 0;
-}
-
-nav ul li a {
-  display: block;
-  padding: 15px 20px;
+  margin-top: 20px;
+  background-color: #25D366;
   color: white;
+  padding: 10px 20px;
+  border-radius: 30px;
   text-decoration: none;
+  font-weight: bold;
 }
 
 main {
-  padding: 20px;
-  background-color: white;
-  max-width: 800px;
-  margin: 0 auto;
+  padding: 30px;
+  max-width: 900px;
+  margin: auto;
 }
 
-section {
-  margin-bottom: 30px;
+h2 {
+  color: #a87c2f;
+  margin-top: 40px;
+}
+
+ul {
+  list-style-type: square;
+  padding-left: 20px;
 }
 
 footer {
   background-color: #222;
   color: white;
   text-align: center;
-  padding: 10px;
+  padding: 15px;
 }
