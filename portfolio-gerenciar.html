@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Portfólio - Quintilhanos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a1a2e;
+            --secondary: #00bfff;
+            --accent: #d4a84e;
+            --bg: #f5f5f5;
+            --white: #ffffff;
+            --danger: #ff6b6b;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg);
+            color: #333;
+        }
+
+        .portfolio-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            color: var(--primary);
+            font-size: 28px;
+        }
+
+        /* FORM SECTION */
+        .form-container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .form-container h2 {
+            color: var(--secondary);
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 10px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        input[type="text"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 14px;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(0, 191, 255, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* UPLOAD BOXES */
+        .upload-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .upload-box {
+            border: 2px dashed var(--secondary);
+            padding: 40px;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            background: white;
+        }
+
+        .upload-box:hover {
+            background: rgba(0, 191, 255, 0.05);
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .upload-box input[type="file"] {
+            display: none;
+        }
+
+        .upload-icon {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .upload-text {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .upload-hint {
+            font-size: 12px;
+            color: #999;
+        }
+
+        .preview-upload {
+            margin-top: 10px;
+            font-size: 12px;
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        /* PREVIEW GRID */
+        .preview-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .preview-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #f0f0f0;
+            min-height: 200px;
+        }
+
+        .preview-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .preview-item-remove {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: var(--danger);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            font-size: 18px;
+            display: none;
+        }
+
+        .preview-item:hover .preview-item-remove {
+            display: block;
+        }
+
+        .preview-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 8px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        /* BUTTONS */
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-size: 14px;
+        }
+
+        .btn-primary {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #0099cc;
+        }
+
+        .btn-success {
+            background: #27ae60;
+            color: white;
+        }
+
+        .btn-danger {
+            background: var(--danger);
+            color: white;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        /* GALLERY */
+        .gallery-container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .gallery-container h2 {
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        .gallery-card-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            height: 200px;
+        }
+
+        .gallery-card-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-right: 2px solid var(--bg);
+        }
+
+        .gallery-card-content {
+            padding: 15px;
+        }
+
+        .gallery-card-title {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .gallery-card-info {
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 8px;
+        }
+
+        .gallery-card-category {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 3px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .gallery-card-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .gallery-card-actions button {
+            flex: 1;
+            padding: 8px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .btn-edit {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .btn-delete {
+            background: var(--danger);
+            color: white;
+        }
+
+        /* ALERT */
+        .alert {
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .alert.show {
+            display: block;
+        }
+
+        .alert-success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .alert-error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        @media (max-width: 768px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .upload-section {
+                grid-template-columns: 1fr;
+            }
+
+            .preview-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .btn-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="portfolio-container">
+        <div class="header">
+            <h1>📸 Gerenciar Portfólio</h1>
+            <button class="btn btn-primary" onclick="novaObra()">➕ Nova Obra</button>
+        </div>
+
+        <div class="alert alert-success" id="alert"></div>
+
+        <!-- FORM PARA ADICIONAR OBRA -->
+        <div class="form-container" id="formContainer" style="display: none;">
+            <h2>📸 Adicionar Nova Obra</h2>
+
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Título da Obra</label>
+                    <input type="text" id="obraTitulo" placeholder="Ex: Forro de Drywall - Sala Comercial">
+                </div>
+
+                <div class="form-group">
+                    <label>Categoria</label>
+                    <select id="obraCategoria">
+                        <option value="Drywall">Drywall</option>
+                        <option value="Forros">Forros</option>
+                        <option value="Divisórias">Divisórias</option>
+                        <option value="Isolamento">Isolamento Acústico</option>
+                        <option value="Reformas">Reformas Completas</option>
+                        <option value="Outro">Outro</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Descrição da Obra</label>
+                <textarea id="obraDescricao" placeholder="Descreva os detalhes do projeto, materiais usados, resultado alcançado..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Data da Obra</label>
+                <input type="date" id="obraData">
+            </div>
+
+            <label style="font-weight: 600; margin-top: 20px; display: block;">Upload de Fotos</label>
+            <p style="color: #999; font-size: 14px; margin-bottom: 15px;">Adicione foto ANTES e DEPOIS do projeto</p>
+
+            <div class="upload-section">
+                <div class="upload-box" onclick="document.getElementById('fotoAntes').click()">
+                    <div class="upload-icon">📸</div>
+                    <div class="upload-text">Foto ANTES</div>
+                    <div class="upload-hint">Clique para fazer upload</div>
+                    <div class="preview-upload" id="previewAntesText"></div>
+                    <input type="file" id="fotoAntes" accept="image/*" onchange="previewAntes(event)">
+                </div>
+
+                <div class="upload-box" onclick="document.getElementById('fotoDepois').click()">
+                    <div class="upload-icon">📸</div>
+                    <div class="upload-text">Foto DEPOIS</div>
+                    <div class="upload-hint">Clique para fazer upload</div>
+                    <div class="preview-upload" id="previewDepoisText"></div>
+                    <input type="file" id="fotoDepois" accept="image/*" onchange="previewDepois(event)">
+                </div>
+            </div>
+
+            <div class="preview-grid" id="previewGrid" style="display: none;">
+                <div class="preview-item">
+                    <img id="previewAntesImg" src="" alt="Antes">
+                    <div class="preview-label">ANTES</div>
+                    <button class="preview-item-remove" onclick="removerAntes()">✕</button>
+                </div>
+
+                <div class="preview-item">
+                    <img id="previewDepoisImg" src="" alt="Depois">
+                    <div class="preview-label">DEPOIS</div>
+                    <button class="preview-item-remove" onclick="removerDepois()">✕</button>
+                </div>
+            </div>
+
+            <div class="btn-group">
+                <button class="btn btn-success" onclick="salvarObra()">💾 Salvar Obra</button>
+                <button class="btn btn-danger" onclick="cancelarObra()">❌ Cancelar</button>
+            </div>
+        </div>
+
+        <!-- GALERIA DE OBRAS -->
+        <div class="gallery-container">
+            <h2>📚 Obras no Portfólio</h2>
+            <div class="gallery-grid" id="galeriaGrid">
+                <!-- Será preenchido por JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let fotosCarregadas = {
+            antes: null,
+            depois: null
+        };
+
+        // Definir data de hoje
+        document.getElementById('obraData').valueAsDate = new Date();
+
+        function novaObra() {
+            document.getElementById('formContainer').style.display = 'block';
+            document.getElementById('obraTitulo').focus();
+            window.scrollTo(0, 0);
+        }
+
+        function cancelarObra() {
+            document.getElementById('formContainer').style.display = 'none';
+            document.getElementById('obraTitulo').value = '';
+            document.getElementById('obraDescricao').value = '';
+            document.getElementById('fotoAntes').value = '';
+            document.getElementById('fotoDepois').value = '';
+            fotosCarregadas = { antes: null, depois: null };
+            document.getElementById('previewGrid').style.display = 'none';
+        }
+
+        function previewAntes(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    fotosCarregadas.antes = e.target.result;
+                    document.getElementById('previewAntesImg').src = e.target.result;
+                    document.getElementById('previewAntesText').textContent = '✅ Imagem carregada';
+                    atualizarPreview();
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function previewDepois(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    fotosCarregadas.depois = e.target.result;
+                    document.getElementById('previewDepoisImg').src = e.target.result;
+                    document.getElementById('previewDepoisText').textContent = '✅ Imagem carregada';
+                    atualizarPreview();
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function atualizarPreview() {
+            if (fotosCarregadas.antes || fotosCarregadas.depois) {
+                document.getElementById('previewGrid').style.display = 'grid';
+            }
+        }
+
+        function removerAntes() {
+            document.getElementById('fotoAntes').value = '';
+            fotosCarregadas.antes = null;
+            document.getElementById('previewAntesText').textContent = '';
+            if (!fotosCarregadas.depois) {
+                document.getElementById('previewGrid').style.display = 'none';
+            }
+        }
+
+        function removerDepois() {
+            document.getElementById('fotoDepois').value = '';
+            fotosCarregadas.depois = null;
+            document.getElementById('previewDepoisText').textContent = '';
+            if (!fotosCarregadas.antes) {
+                document.getElementById('previewGrid').style.display = 'none';
+            }
+        }
+
+        function salvarObra() {
+            const titulo = document.getElementById('obraTitulo').value;
+            const descricao = document.getElementById('obraDescricao').value;
+            const categoria = document.getElementById('obraCategoria').value;
+            const data = document.getElementById('obraData').value;
+
+            if (!titulo || !descricao) {
+                mostrarAlerta('❌ Preencha título e descrição', 'error');
+                return;
+            }
+
+            if (!fotosCarregadas.antes || !fotosCarregadas.depois) {
+                mostrarAlerta('❌ Adicione foto ANTES e DEPOIS', 'error');
+                return;
+            }
+
+            const obra = {
+                id: Date.now(),
+                titulo: titulo,
+                descricao: descricao,
+                categoria: categoria,
+                data: data,
+                fotoAntes: fotosCarregadas.antes,
+                fotoDepois: fotosCarregadas.depois
+            };
+
+            // Salva no localStorage (depois Firebase)
+            let obras = JSON.parse(localStorage.getItem('obras') || '[]');
+            obras.push(obra);
+            localStorage.setItem('obras', JSON.stringify(obras));
+
+            mostrarAlerta('✅ Obra adicionada ao portfólio!', 'success');
+            cancelarObra();
+            carregarObras();
+        }
+
+        function carregarObras() {
+            const obras = JSON.parse(localStorage.getItem('obras') || '[]');
+            const galeriaGrid = document.getElementById('galeriaGrid');
+            galeriaGrid.innerHTML = '';
+
+            if (obras.length === 0) {
+                galeriaGrid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: #999; padding: 40px;">Nenhuma obra no portfólio ainda. Adicione uma!</p>';
+                return;
+            }
+
+            obras.forEach(obra => {
+                const card = document.createElement('div');
+                card.className = 'gallery-card';
+                card.innerHTML = `
+                    <div class="gallery-card-images">
+                        <img src="${obra.fotoAntes}" alt="Antes" class="gallery-card-image">
+                        <img src="${obra.fotoDepois}" alt="Depois" class="gallery-card-image">
+                    </div>
+                    <div class="gallery-card-content">
+                        <div class="gallery-card-title">${obra.titulo}</div>
+                        <div class="gallery-card-category">${obra.categoria}</div>
+                        <div class="gallery-card-info">
+                            <strong>Data:</strong> ${new Date(obra.data).toLocaleDateString('pt-BR')}<br>
+                            <strong>Descrição:</strong> ${obra.descricao.substring(0, 60)}...
+                        </div>
+                        <div class="gallery-card-actions">
+                            <button class="btn-edit" onclick="editarObra(${obra.id})">✏️ Editar</button>
+                            <button class="btn-delete" onclick="deletarObra(${obra.id})">🗑️ Deletar</button>
+                        </div>
+                    </div>
+                `;
+                galeriaGrid.appendChild(card);
+            });
+        }
+
+        function deletarObra(id) {
+            if (confirm('Tem certeza que quer deletar esta obra?')) {
+                let obras = JSON.parse(localStorage.getItem('obras') || '[]');
+                obras = obras.filter(o => o.id !== id);
+                localStorage.setItem('obras', JSON.stringify(obras));
+                mostrarAlerta('✅ Obra deletada!', 'success');
+                carregarObras();
+            }
+        }
+
+        function editarObra(id) {
+            alert('Função de edição será implementada em breve!');
+        }
+
+        function mostrarAlerta(mensagem, tipo) {
+            const alert = document.getElementById('alert');
+            alert.textContent = mensagem;
+            alert.className = `alert alert-${tipo === 'success' ? 'success' : 'error'} show`;
+            setTimeout(() => alert.classList.remove('show'), 3000);
+        }
+
+        // Carregar obras ao iniciar
+        carregarObras();
+    </script>
+</body>
+</html>
