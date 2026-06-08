@@ -1,119 +1,401 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    <!-- Meta Tags Essenciais para SEO e Performance -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quintilhanos - Forros e Divisórias</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Quintilhanos - Drywall e Pintura Premium em São Paulo. Especialistas em reformas, acabamentos e divisórias com design sofisticado e atendimento feminino.">
+    <meta name="keywords" content="drywall premium, pintura premium, forros, divisórias, reformas, acabamentos, São Paulo">
+    <meta name="author" content="Quintilhanos">
+    <meta name="theme-color" content="#1a1a1a">
+    
+    <!-- Open Graph para Redes Sociais -->
+    <meta property="og:type" content="business.business">
+    <meta property="og:title" content="Quintilhanos - Drywall e Pintura Premium">
+    <meta property="og:description" content="Transformamos seus espaços com soluções premium em drywall, pintura e acabamentos sofisticados.">
+    <meta property="og:url" content="https://quintilhanos.com.br/">
+    <meta property="og:image" content="https://quintilhanos.com.br/imagens/logo-og.png">
+    <meta property="og:locale" content="pt_BR">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Quintilhanos - Drywall e Pintura Premium">
+    <meta name="twitter:description" content="Soluções premium em drywall, pintura e acabamentos em São Paulo.">
+    
+    <!-- Preload de Recursos Críticos -->
+    <link rel="preload" href="style.css" as="style">
+    <link rel="preload" href="script.js" as="script">
+    
+    <!-- Estilos -->
+    <link rel="stylesheet" href="style.css" media="screen">
+    
+    <title>Quintilhanos - Drywall e Pintura Premium em São Paulo</title>
+    
+    <!-- Schema.org LocalBusiness - Estrutura para Google My Business -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Quintilhanos",
+      "image": "https://quintilhanos.com.br/imagens/logo.png",
+      "description": "Especialistas em drywall premium, pintura premium e acabamentos sofisticados.",
+      "url": "https://quintilhanos.com.br",
+      "telephone": "+5511999999999",
+      "email": "contato@quintilhanos.com.br",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Rua das Construções, 123",
+        "addressLocality": "São Paulo",
+        "addressRegion": "SP",
+        "postalCode": "01310-100",
+        "addressCountry": "BR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "-23.5505",
+        "longitude": "-46.6333"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "08:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "09:00",
+          "closes": "13:00"
+        }
+      ],
+      "priceRange": "$$$$"
+    }
+    </script>
 </head>
 <body>
-    <!-- Navegação -->
-    <nav class="navbar">
+    <!-- Botão WhatsApp Flutuante -->
+    <a href="https://wa.me/5511999999999?text=Olá%20Quintilhanos!%20Gostaria%20de%20solicitar%20um%20orçamento%20para%20drywall%20e%20pintura%20premium." 
+       class="whatsapp-btn" 
+       aria-label="Abrir WhatsApp"
+       title="Entre em contato via WhatsApp">
+        <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-9.746 9.798c0 2.734.732 5.395 2.123 7.712l-2.257 6.144 6.503-2.118c2.211 1.186 4.705 1.815 7.239 1.815 9.868 0 17.75-8.048 17.75-17.954 0-4.774-1.893-9.26-5.335-12.641C19.028 2.24 14.632.52 9.952.52zm0-2.08c5.531 0 10.706 2.165 14.61 6.058C28.4 8.272 30.36 13.415 30.36 18.909c0 11.036-8.864 20.034-19.75 20.034-3.67 0-7.165-.932-10.184-2.56l-.03-.016L.97 40.45l2.126-5.794.016.028c1.783 2.798 4.335 5.087 7.35 6.466 3.016 1.38 6.33 2.112 9.768 2.112 11.036 0 20.034-8.864 20.034-19.75 0-5.33-2.099-10.33-5.914-14.066-3.816-3.736-8.977-5.792-14.418-5.792z"/>
+        </svg>
+    </a>
+
+    <!-- Navegação Principal -->
+    <nav class="navbar" role="navigation" aria-label="Navegação principal">
         <div class="container">
-            <div class="logo">
-                <h1>Quintilhanos</h1>
-                <p class="tagline">Forros e Divisórias Premium</p>
+            <div class="logo-section">
+                <div class="logo-text">
+                    <h1>Quintilhanos</h1>
+                    <p class="tagline">Drywall & Pintura Premium</p>
+                </div>
             </div>
-            <ul class="menu">
-                <li><a href="index.html" class="active">Início</a></li>
-                <li><a href="forros.html">Forros</a></li>
-                <li><a href="divisorias.html">Divisórias</a></li>
-                <li><a href="loja.html">Loja</a></li>
-                <li><a href="reparos.html">Reparos</a></li>
-                <li><a href="consultoria.html">Consultoria</a></li>
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="menu" id="navMenu" role="menubar">
+                <li><a href="#inicio" class="active" role="menuitem">Início</a></li>
+                <li><a href="#servicos" role="menuitem">Serviços</a></li>
+                <li><a href="#diferenciais" role="menuitem">Diferenciais</a></li>
+                <li><a href="#galeria" role="menuitem">Galeria</a></li>
+                <li><a href="#depoimentos" role="menuitem">Depoimentos</a></li>
+                <li><a href="#faq" role="menuitem">FAQ</a></li>
+                <li><a href="#contato" role="menuitem" class="cta-nav">Contato</a></li>
             </ul>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h2>Bem-vindo à Quintilhanos</h2>
-            <p>Soluções em forros e divisórias com qualidade e inovação</p>
-            <a href="loja.html" class="btn btn-primary">Conheça Nossos Produtos</a>
-        </div>
-    </section>
-
-    <!-- Sobre -->
-    <section class="about">
-        <div class="container">
-            <h2>Sobre Nós</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>A Quintilhanos é uma empresa especializada em forros e divisórias com mais de 20 anos de experiência no mercado. Oferecemos produtos de alta qualidade com preços competitivos.</p>
-                    <p>Nosso compromisso é fornecer soluções personalizadas que atendem às necessidades específicas de cada cliente, seja residencial ou comercial.</p>
-                </div>
-                <div class="about-features">
-                    <div class="feature">
-                        <h3>🏆 Qualidade</h3>
-                        <p>Produtos premium com durabilidade garantida</p>
-                    </div>
-                    <div class="feature">
-                        <h3>💰 Preços</h3>
-                        <p>Orçamentos competitivos e parcelamento disponível</p>
-                    </div>
-                    <div class="feature">
-                        <h3>🔧 Instalação</h3>
-                        <p>Equipe profissional para instalação e reparos</p>
-                    </div>
+    <section class="hero" id="inicio" aria-labelledby="hero-title">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <h1 id="hero-title">Drywall e Pintura Premium para Seu Espaço</h1>
+                <p class="hero-subtitle">Transformamos ambientes com soluções sofisticadas, durabilidade garantida e atendimento especializado.</p>
+                <div class="hero-ctas">
+                    <a href="#servicos" class="btn btn-primary btn-lg">Conheça Nossos Serviços</a>
+                    <a href="https://wa.me/5511999999999" class="btn btn-secondary btn-lg">Solicitar Orçamento</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Categorias Principais -->
-    <section class="categories">
+    <!-- Serviços Principais -->
+    <section class="servicos" id="servicos" aria-labelledby="servicos-title">
         <div class="container">
-            <h2>Nossas Categorias</h2>
-            <div class="category-grid">
-                <div class="category-card">
-                    <h3>Forros</h3>
-                    <p>Ampla variedade de forros para qualquer ambiente</p>
-                    <a href="forros.html" class="btn btn-secondary">Ver Mais</a>
+            <h2 id="servicos-title">Serviços Premium</h2>
+            <div class="servicos-grid">
+                <article class="servico-card servico-principal">
+                    <h3>Drywall Premium</h3>
+                    <p>Sistemas de gesso acartonado de alta performance com design sofisticado.</p>
+                    <ul class="servico-features">
+                        <li>Isolamento acústico superior</li>
+                        <li>Resistência ao fogo (RF-60)</li>
+                        <li>Acabamento perfeito</li>
+                    </ul>
+                </article>
+
+                <article class="servico-card servico-principal">
+                    <h3>Pintura Premium</h3>
+                    <p>Acabamentos sofisticados com tintas de alta durabilidade.</p>
+                    <ul class="servico-features">
+                        <li>Tintas premium com durabilidade estendida</li>
+                        <li>Cores exclusivas e personalizadas</li>
+                        <li>Preparação profissional de superfícies</li>
+                    </ul>
+                </article>
+
+                <article class="servico-card">
+                    <h3>Divisórias Premium</h3>
+                    <p>Soluções inteligentes para otimizar e segmentar espaços.</p>
+                    <ul class="servico-features">
+                        <li>Divisórias deslizantes</li>
+                        <li>Vidro temperado e aço inox</li>
+                        <li>Isolamento acústico integrado</li>
+                    </ul>
+                </article>
+
+                <article class="servico-card">
+                    <h3>Forros Sofisticados</h3>
+                    <p>Sistemas de forro inovadores que agregam estética.</p>
+                    <ul class="servico-features">
+                        <li>Forros acústicos premium</li>
+                        <li>Iluminação integrada</li>
+                        <li>Acabamentos personalizados</li>
+                    </ul>
+                </article>
+
+                <article class="servico-card">
+                    <h3>Reformas & Acabamentos</h3>
+                    <p>Solução completa para transformação de espaços.</p>
+                    <ul class="servico-features">
+                        <li>Projetos customizados</li>
+                        <li>Gestão eficiente de prazos</li>
+                        <li>Acabamento premium</li>
+                    </ul>
+                </article>
+
+                <article class="servico-card">
+                    <h3>Atendimento Especializado</h3>
+                    <p>Equipe profissional para acolher suas necessidades.</p>
+                    <ul class="servico-features">
+                        <li>Profissionais especializadas</li>
+                        <li>Comunicação clara</li>
+                        <li>Suporte personalizado</li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Diferenciais -->
+    <section class="diferenciais" id="diferenciais" aria-labelledby="diferenciais-title">
+        <div class="container">
+            <h2 id="diferenciais-title">Por Que Escolher Quintilhanos</h2>
+            <div class="diferenciais-grid">
+                <div class="diferencial-item">
+                    <h3>Qualidade Premium</h3>
+                    <p>Materiais de primeira linha com certificação de durabilidade.</p>
                 </div>
-                <div class="category-card">
-                    <h3>Divisórias</h3>
-                    <p>Soluções em divisórias para espaços modernos</p>
-                    <a href="divisorias.html" class="btn btn-secondary">Ver Mais</a>
+                <div class="diferencial-item">
+                    <h3>Design Sofisticado</h3>
+                    <p>Projetos personalizados que refletem elegância.</p>
                 </div>
-                <div class="category-card">
-                    <h3>Reparos</h3>
-                    <p>Manutenção e reparos profissionais</p>
-                    <a href="reparos.html" class="btn btn-secondary">Ver Mais</a>
+                <div class="diferencial-item">
+                    <h3>Equipe Especializada</h3>
+                    <p>Profissionais com 20+ anos de experiência.</p>
+                </div>
+                <div class="diferencial-item">
+                    <h3>Cumprimento de Prazos</h3>
+                    <p>Gestão eficiente com transparência total.</p>
+                </div>
+                <div class="diferencial-item">
+                    <h3>Garantia Estendida</h3>
+                    <p>5 anos de garantia com suporte técnico prioritário.</p>
+                </div>
+                <div class="diferencial-item">
+                    <h3>Atendimento Personalizado</h3>
+                    <p>Consultoria gratuita e suporte contínuo.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contato Rápido -->
-    <section class="contact-cta">
+    <!-- Galeria -->
+    <section class="galeria" id="galeria" aria-labelledby="galeria-title">
         <div class="container">
-            <h2>Precisa de Ajuda?</h2>
-            <p>Entre em contato conosco para consultoria gratuita</p>
-            <a href="consultoria.html" class="btn btn-primary">Solicitar Consultoria</a>
+            <h2 id="galeria-title">Galeria de Obras</h2>
+            <p class="section-subtitle">Portfólio de projetos realizados</p>
+            <div class="galeria-grid">
+                <a href="imagens/projeto-1.jpg" class="galeria-item" aria-label="Projeto de drywall">
+                    <img src="imagens/projeto-1-thumb.jpg" alt="Projeto de drywall em sala" loading="lazy" width="300" height="300">
+                </a>
+                <a href="imagens/projeto-2.jpg" class="galeria-item" aria-label="Pintura premium">
+                    <img src="imagens/projeto-2-thumb.jpg" alt="Pintura premium em ambiente comercial" loading="lazy" width="300" height="300">
+                </a>
+                <a href="imagens/projeto-3.jpg" class="galeria-item" aria-label="Forro acústico">
+                    <img src="imagens/projeto-3-thumb.jpg" alt="Forro acústico sofisticado" loading="lazy" width="300" height="300">
+                </a>
+                <a href="imagens/projeto-4.jpg" class="galeria-item" aria-label="Divisória vidro">
+                    <img src="imagens/projeto-4-thumb.jpg" alt="Divisória vidro em corporativo" loading="lazy" width="300" height="300">
+                </a>
+                <a href="imagens/projeto-5.jpg" class="galeria-item" aria-label="Reforma residencial">
+                    <img src="imagens/projeto-5-thumb.jpg" alt="Reforma completa residencial" loading="lazy" width="300" height="300">
+                </a>
+                <a href="imagens/projeto-6.jpg" class="galeria-item" aria-label="Acabamento premium">
+                    <img src="imagens/projeto-6-thumb.jpg" alt="Acabamento premium em loft" loading="lazy" width="300" height="300">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section class="depoimentos" id="depoimentos" aria-labelledby="depoimentos-title">
+        <div class="container">
+            <h2 id="depoimentos-title">Depoimentos de Clientes</h2>
+            <div class="depoimentos-grid">
+                <article class="depoimento-card">
+                    <p class="depoimento-texto">"A Quintilhanos transformou meu projeto com qualidade impecável. Atendimento profissional e excelente. Recomendo!"</p>
+                    <p class="depoimento-autor"><strong>Marina Costa</strong> - Arquiteta, São Paulo</p>
+                </article>
+
+                <article class="depoimento-card">
+                    <p class="depoimento-texto">"Para nosso escritório, a Quintilhanos foi excelente. Cumpriram prazos e apresentaram design sofisticado."</p>
+                    <p class="depoimento-autor"><strong>Roberto Pereira</strong> - Gerente Comercial</p>
+                </article>
+
+                <article class="depoimento-card">
+                    <p class="depoimento-texto">"Pintura premium exatamente como procurávamos. Acabamento impecável em cada detalhe. Parceria garantida!"</p>
+                    <p class="depoimento-autor"><strong>Adriana Ferreira</strong> - Coordenadora de Interiores</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq" aria-labelledby="faq-title">
+        <div class="container">
+            <h2 id="faq-title">Dúvidas Frequentes</h2>
+            <div class="faq-items">
+                <details class="faq-item" open>
+                    <summary><strong>Qual é a diferença entre drywall premium e convencional?</strong></summary>
+                    <p>O drywall premium oferece isolamento acústico superior, resistência ao fogo (RF-60) e acabamentos mais sofisticados com durabilidade estendida.</p>
+                </details>
+
+                <details class="faq-item">
+                    <summary><strong>Quanto tempo leva uma reforma completa?</strong></summary>
+                    <p>O tempo varia conforme escopo. Uma pintura leva 2-3 dias. Uma reforma completa pode levar 2-4 semanas. Oferecemos cronograma preciso após levantamento.</p>
+                </details>
+
+                <details class="faq-item">
+                    <summary><strong>Vocês oferecem orçamento gratuito?</strong></summary>
+                    <p>Sim! Oferecemos consultoria gratuita e orçamento detalhado após visita técnica ao seu espaço.</p>
+                </details>
+
+                <details class="faq-item">
+                    <summary><strong>Qual é a garantia dos serviços?</strong></summary>
+                    <p>5 anos de garantia com cobertura de material e mão de obra. Incluímos suporte técnico prioritário.</p>
+                </details>
+
+                <details class="faq-item">
+                    <summary><strong>Vocês trabalham com residências e comércios?</strong></summary>
+                    <p>Sim! Experiência em residencial, comercial, corporativo e industrial. Adaptamos soluções para cada projeto.</p>
+                </details>
+
+                <details class="faq-item">
+                    <summary><strong>Como solicitar um orçamento?</strong></summary>
+                    <p>Clique no botão WhatsApp, preencha o formulário ou ligue. Uma profissional agendará visita e apresentará a melhor solução.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section class="contato" id="contato" aria-labelledby="contato-title">
+        <div class="container">
+            <div class="contato-grid">
+                <article class="contato-info">
+                    <h2 id="contato-title">Entre em Contato</h2>
+                    <p>Agende sua consultoria gratuita e descubra como transformar seu espaço.</p>
+                    
+                    <div class="contato-items">
+                        <p><strong>📞 Telefone:</strong> <a href="tel:+5511999999999">(11) 99999-9999</a></p>
+                        <p><strong>💬 WhatsApp:</strong> <a href="https://wa.me/5511999999999">Enviar mensagem</a></p>
+                        <p><strong>📧 Email:</strong> <a href="mailto:contato@quintilhanos.com.br">contato@quintilhanos.com.br</a></p>
+                        <p><strong>📍 Localização:</strong> São Paulo - SP</p>
+                    </div>
+                </article>
+
+                <form class="contato-form" id="formContato" aria-labelledby="contato-title" novalidate>
+                    <h3>Solicitar Orçamento</h3>
+                    
+                    <div class="form-group">
+                        <label for="nome">Nome Completo *</label>
+                        <input type="text" id="nome" name="nome" required aria-required="true" placeholder="Seu nome">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required aria-required="true" placeholder="seu@email.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefone">Telefone/WhatsApp *</label>
+                        <input type="tel" id="telefone" name="telefone" required aria-required="true" placeholder="(11) 99999-9999">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="servico">Serviço de Interesse *</label>
+                        <select id="servico" name="servico" required aria-required="true">
+                            <option value="">Selecione um serviço</option>
+                            <option value="drywall">Drywall Premium</option>
+                            <option value="pintura">Pintura Premium</option>
+                            <option value="divisorias">Divisórias</option>
+                            <option value="forros">Forros</option>
+                            <option value="reformas">Reformas & Acabamentos</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mensagem">Mensagem</label>
+                        <textarea id="mensagem" name="mensagem" rows="5" placeholder="Descreva seu projeto..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-lg">Solicitar Orçamento</button>
+                    <p class="form-disclaimer">Responderemos em até 2 horas.</p>
+                </form>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
                     <h4>Quintilhanos</h4>
-                    <p>Forros e divisórias de qualidade premium</p>
+                    <p>Soluções premium em drywall, pintura e acabamentos sofisticados.</p>
                 </div>
                 <div class="footer-section">
                     <h4>Navegação</h4>
                     <ul>
-                        <li><a href="forros.html">Forros</a></li>
-                        <li><a href="divisorias.html">Divisórias</a></li>
-                        <li><a href="loja.html">Loja</a></li>
+                        <li><a href="#servicos">Serviços</a></li>
+                        <li><a href="#diferenciais">Diferenciais</a></li>
+                        <li><a href="#galeria">Galeria</a></li>
+                        <li><a href="#depoimentos">Depoimentos</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#contato">Contato</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h4>Contato</h4>
-                    <p>📞 (11) 3000-0000</p>
-                    <p>📧 contato@quintilhanos.com.br</p>
+                    <p>📞 <a href="tel:+5511999999999">(11) 99999-9999</a></p>
+                    <p>💬 <a href="https://wa.me/5511999999999">WhatsApp</a></p>
+                    <p>📧 <a href="mailto:contato@quintilhanos.com.br">contato@quintilhanos.com.br</a></p>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -121,5 +403,8 @@
             </div>
         </div>
     </footer>
+
+    <!-- Scripts -->
+    <script src="script.js" defer></script>
 </body>
 </html>
