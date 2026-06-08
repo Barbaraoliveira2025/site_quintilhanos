@@ -1,0 +1,52 @@
+# Quintilhanos - robots.txt
+# Otimizado para melhor rastreamento e indexação
+
+# Permitir todos os crawlers padrão
+User-agent: *
+Allow: /
+
+# Desincentivar rastreamento de arquivos administrativos
+Disallow: /admin/
+Disallow: /private/
+Disallow: /backup/
+Disallow: /*.json$
+Disallow: /*.xml$
+
+# Diretivas de rastreamento otimizadas
+Crawl-delay: 1
+Request-rate: 30/1m
+
+# Sitemap oficial para Google, Bing, Yahoo
+Sitemap: https://quintilhanos.com.br/sitemap.xml
+
+# Velocidade de rastreamento para crawlers intensivos
+User-agent: AhrefsBot
+Crawl-delay: 10
+Request-rate: 10/1m
+
+User-agent: SemrushBot
+Crawl-delay: 10
+Request-rate: 10/1m
+
+User-agent: MJ12bot
+Crawl-delay: 10
+Request-rate: 10/1m
+
+User-agent: DotBot
+Crawl-delay: 10
+Request-rate: 10/1m
+
+# Permitir bots principais de busca
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# Fim do arquivo robots.txt
