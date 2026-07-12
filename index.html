@@ -69,7 +69,7 @@
             min-width: 100%;
             min-height: 100%;
             transform: translate(-50%, -50%);
-            object-fit: cover; /* Garante o preenchimento de fundo completo sem sumir ou cortar as bordas do logo */
+            object-fit: cover; /* Garante o preenchimento de fundo completo */
             z-index: 1;
             background-color: #161616;
             pointer-events: none;
@@ -142,7 +142,7 @@
             margin-bottom: 40px;
         }
 
-        /* Força a distribuição em colunas horizontais em qualquer aparelho (Sem empilhar) */
+        /* Força a distribuição in colunas horizontais em qualquer aparelho (Sem empilhar) */
         .servicos-grid {
             display: flex !important;
             flex-direction: row !important; 
@@ -207,7 +207,7 @@
       "@type": "LocalBusiness",
       "name": "Quintilhanos",
       "image": "https://quintilhanos.com.br/imagens/logo.png",
-      "description": "Especialistas em Construções, Acabamentos sofisticados, Pintura premium, Hidraulica e Eletrica.",
+      "description": "Especialistas in Construções, Acabamentos sofisticados, Pintura premium, Hidraulica e Eletrica.",
       "url": "https://quintilhanos.com.br",
       "telephone": "+5547992772453",
       "email": "quintilhanoscontrucoeseacabame@gmail.com",
@@ -266,9 +266,10 @@
         </div>
     </nav>
 
-    <!-- Hero Section Capa Totalmente Estabilizada -->
+    <!-- Hero Section Capa Totalmente Estabilizada e Otimizada para Mobile -->
     <section class="hero" id="inicio" aria-labelledby="hero-title">
-        <video class="hero-video-bg" autoplay muted loop playsinline preload="auto">
+        <!-- ATUALIZADO: Atributos específicos inseridos para destravar a reprodução automática em iOS e Android -->
+        <video class="hero-video-bg" autoplay loop muted playsinline webkit-playsinline preload="auto">
             <source src="https://www.dropbox.com/scl/fi/e0s79hp9hrodsvtkzt8vf/Quero_que_fa-a_um_pequeno_v-de-1.mp4?rlkey=72rcyg2g5f0nw9wkr8gbxu4rr&st=o12bplyz&raw=1" type="video/mp4">
         </video>
         <div class="hero-video-overlay"></div>
@@ -287,7 +288,7 @@
         </div>
     </section>
 
-    <!-- Serviços Principais (Forçados Horizontalmente conforme solicitado) -->
+    <!-- Serviços Principais (Distribuição Horizontal Idêntica ao Desktop) -->
     <section class="servicos" id="servicos" aria-labelledby="servicos-title">
         <div class="container">
             <h2 id="servicos-title">Serviços Premium</h2>
@@ -398,7 +399,7 @@
             <p class="section-subtitle">Portfólio de projetos realizados</p>
             <div class="galeria-grid">
                 <a href="imagens/projeto-1.jpg" class="galeria-item" aria-label="Projeto de drywall">
-                    <img src="imagens/projeto-1-thumb.jpg" alt="Projeto de drywall em sala" loading="lazy" width="300" height="300">
+                    <img src="imagens/projeto-1-thumb.jpg" alt="Projeto de drywall in sala" loading="lazy" width="300" height="300">
                 </a>
                 <a href="imagens/projeto-2.jpg" class="galeria-item" aria-label="Pintura premium">
                     <img src="imagens/projeto-2-thumb.jpg" alt="Pintura premium em ambiente comercial" loading="lazy" width="300" height="300">
@@ -435,7 +436,7 @@
                 </article>
 
                 <article class="depoimento-card">
-                    <p class="depoimento-texto">"Pintura premium exatamente como procurávamos. Acabamento impecável in cada detalhe. Parceria garantida!"</p>
+                    <p class="depoimento-texto">"Pintura premium exatamente como procurávamos. Acabamento impecável em cada detalhe. Parceria garantida!"</p>
                     <p class="depoimento-autor"><strong>Adriana Ferreira</strong> - Coordenadora de Interiores</p>
                 </article>
             </div>
@@ -570,6 +571,21 @@
         </div>
     </footer>
 
+    <!-- Script Corretor para Destravar Forçadamente Mídias em Segundo Plano -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var video = document.querySelector(".hero-video-bg");
+            if (video) {
+                video.play().catch(function(error) {
+                    console.log("Autoplay bloqueado pelo sistema nativo, tentando reiniciar via evento de toque:", error);
+                    // Força a execução assim que o usuário interagir minimamente com a tela do celular
+                    document.body.addEventListener('touchstart', function() {
+                        video.play();
+                    }, { once: true });
+                });
+            }
+        });
+    </script>
     <script src="script.js" defer></script>
 </body>
 </html>
