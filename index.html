@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <!-- Meta Tags Essenciais para SEO e Performance -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <!-- REMOVIDA A TAG VIEWPORT RESPONSIVA PARA FORÇAR O MODO DESKTOP EM TODAS AS TELAS -->
     <meta name="description" content="Quintilhanos - Drywall e Pintura Premium em Santa Catarina. Especialistas em reformas, acabamentos e divisórias com design sofisticado e atendimento especializado.">
     <meta name="keywords" content="drywall premium, pintura premium, forros, divisórias, reformas, acabamentos, Santa Catarina">
     <meta name="author" content="Quintilhanos">
@@ -24,32 +23,29 @@
     <!-- Estilos Gerais do Site -->
     <link rel="stylesheet" href="style.css" media="screen">
     
-    <!-- SISTEMA DE TRAVAMENTO DESKTOP (Força o layout idêntico ao Computador no Celular e Tablet) -->
+    <!-- BLOQUEIO ABSOLUTO DESKTOP (Anula qualquer comportamento responsivo do style.css) -->
     <style>
-        /* Reset e Base Controlada */
-        * {
-            box-sizing: border-box !important;
-            margin: 0;
-            padding: 0;
-        }
-
-        body, html {
-            width: 100% !important;
+        /* Força todos os elementos a respeitarem a proporção de tela cheia de computador */
+        html, body {
+            width: 1200px !important;
+            min-width: 1200px !important;
+            margin: 0 auto !important;
             background-color: #ffffff !important;
             font-family: sans-serif !important;
-            overflow-x: auto !important; /* Permite navegar pelo layout largo no celular */
+            -webkit-text-size-adjust: none !important; /* Impede o celular de aumentar as fontes sozinho */
         }
 
-        /* Bloqueia o encolhimento dos elementos principais */
-        .container {
-            width: 1200px !important; /* Força largura de computador fixa */
+        /* Força os blocos estruturais a manterem largura fixa de desktop */
+        .container, .navbar, .hero, .servicos, .diferenciais, .galeria, .depoimentos, .faq, .contato, .footer {
+            width: 1200px !important;
+            min-width: 1200px !important;
             max-width: 1200px !important;
-            margin: 0 auto !important;
-            padding: 0 20px !important;
-            display: block !important;
+            margin-right: auto !important;
+            margin-left: auto !important;
+            box-sizing: border-box !important;
         }
 
-        /* NAVBAR IGUAL AO COMPUTADOR */
+        /* NAVBAR HORIZONTAL FIXA */
         .navbar .container {
             display: flex !important;
             flex-direction: row !important;
@@ -62,18 +58,23 @@
             flex-direction: row !important;
             gap: 20px !important;
             list-style: none !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            position: static !important;
+            background: transparent !important;
+            width: auto !important;
+            height: auto !important;
         }
 
         .menu-toggle {
-            display: none !important; /* Esconde o menu de hambúrguer do celular */
+            display: none !important; /* Oculta o botão de três risquinhos do mobile */
         }
 
-        /* HERO / CAPA ANIMADA IDENTICA AO PC */
+        /* HERO / CAPA ANIMADA COMPARTILHADA IGUAL DESKTOP */
         .hero {
             position: relative !important;
-            width: 100% !important;
-            min-width: 1200px !important;
             height: 100vh !important; 
+            min-height: 650px !important;
             overflow: hidden !important;
             display: flex !important;
             align-items: center !important;
@@ -90,7 +91,7 @@
             min-width: 100% !important;
             min-height: 100% !important;
             transform: translate(-50%, -50%) !important;
-            object-fit: cover !important; /* Garante que o preenchimento fique idêntico ao PC */
+            object-fit: cover !important;
             z-index: 1 !important;
         }
 
@@ -120,7 +121,7 @@
         .hero-subtitle {
             color: #e0e0e0 !important;
             font-size: 1.25rem !important;
-            margin-bottom: 40px !important;
+            margin: 0 auto 40px auto !important;
         }
 
         .hero-ctas {
@@ -130,11 +131,11 @@
             gap: 16px !important;
         }
 
-        /* SEÇÃO DE SERVIÇOS (LADO A LADO EM COLUNAS) */
+        /* GRADE DE SERVIÇOS EXATAMENTE IGUAL À IMAGEM (TRÊS COLUNAS LADO A LADO) */
         .servicos-grid {
             display: flex !important;
             flex-direction: row !important; 
-            flex-wrap: nowrap !important; /* Impede estritamente a quebra para baixo */
+            flex-wrap: nowrap !important;
             gap: 24px !important;
             width: 100% !important;
         }
@@ -146,13 +147,14 @@
             padding: 30px !important;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05) !important;
             border-top: 3px solid #1a365d !important;
+            display: block !important;
         }
 
-        /* SEÇÃO DE DIFERENCIAIS (LADO A LADO EM GRADE HORIZONTAL) */
+        /* GRADE DE DIFERENCIAIS EXATAMENTE IGUAL AO DESKTOP (QUATRO COLUNAS LADO A LADO) */
         .diferenciais-grid {
             display: flex !important;
             flex-direction: row !important;
-            flex-wrap: nowrap !important; /* Força os diferenciais a ficarem em linha reta horizontal */
+            flex-wrap: nowrap !important;
             gap: 20px !important;
             width: 100% !important;
         }
@@ -162,49 +164,23 @@
             background: #f8fafc !important;
             padding: 24px !important;
             border-radius: 6px !important;
+            display: block !important;
         }
 
-        /* ANULAÇÃO COMPLETA DE MEDIA QUERIES PARA CELULAR */
-        @media (max-width: 992px), (max-width: 768px), (max-width: 480px) {
-            body, html {
-                width: 1200px !important; /* Força o navegador do celular a abrir o modo desktop nativo */
+        /* ANULAÇÃO COMPLETA DE REGRAS RESPONSIVAS MÓVEIS */
+        @media (max-width: 1200px), (max-width: 992px), (max-width: 768px), (max-width: 480px) {
+            html, body, .container, .navbar, .hero, .servicos, .diferenciais, .galeria, .depoimentos, .faq, .contato, .footer {
+                width: 1200px !important;
+                min-width: 1200px !important;
             }
-            .hero-content h1 { font-size: 3.5rem !important; }
-            .hero-subtitle { font-size: 1.25rem !important; }
-            .hero-ctas { flex-direction: row !important; }
-            .servicos-grid, .diferenciais-grid { flex-direction: row !important; flex-wrap: nowrap !important; }
+            .servicos-grid, .diferenciais-grid, .hero-ctas {
+                flex-direction: row !important;
+                flex-wrap: nowrap !important;
+            }
         }
     </style>
     
     <title>Quintilhanos - Drywall e Pintura Premium em Santa Catarina</title>
-    
-    <!-- Schema.org LocalBusiness -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Quintilhanos",
-      "image": "https://quintilhanos.com.br/imagens/logo.png",
-      "description": "Especialistas em Construções, Acabamentos sofisticados, Pintura premium, Hidraulica e Eletrica.",
-      "url": "https://quintilhanos.com.br",
-      "telephone": "+5547992772453",
-      "email": "quintilhanoscontrucoeseacabame@gmail.com",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Rua Bruno Mordhorst, 279",
-        "addressLocality": "Santa Catarina",
-        "addressRegion": "SC",
-        "postalCode": "89062-244",
-        "addressCountry": "BR"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": "-26.8257306",
-        "longitude": "-49.0799483"
-      },
-      "priceRange": "$$$$"
-    }
-    </script>
 </head>
 <body>
 
@@ -218,7 +194,7 @@
         </svg>
     </a>
 
-    <!-- Navegação Principal -->
+    <!-- Navegação Principal (Travada em modo Desktop) -->
     <nav class="navbar" role="navigation" aria-label="Navegação principal">
         <div class="container">
             <div class="logo-section">
@@ -239,7 +215,7 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section (Capa Fundo Vídeo Fixo) -->
     <section class="hero" id="inicio" aria-labelledby="hero-title">
         <video class="hero-video-bg" autoplay loop muted playsinline webkit-playsinline preload="auto">
             <source src="https://www.dropbox.com/scl/fi/e0s79hp9hrodsvtkzt8vf/Quero_que_fa-a_um_pequeno_v-de-1.mp4?rlkey=72rcyg2g5f0nw9wkr8gbxu4rr&st=o12bplyz&raw=1" type="video/mp4">
@@ -260,7 +236,7 @@
         </div>
     </section>
 
-    <!-- Serviços Principais -->
+    <!-- Serviços Principais (Três Colunas Horizontais Fixas) -->
     <section class="servicos" id="servicos" aria-labelledby="servicos-title">
         <div class="container">
             <h2 id="servicos-title">Serviços Premium</h2>
@@ -301,7 +277,7 @@
         </div>
     </section>
 
-    <!-- Diferenciais -->
+    <!-- Diferenciais (Quatro Colunas Horizontais Fixas) -->
     <section class="diferenciais" id="diferenciais" aria-labelledby="diferenciais-title">
         <div class="container">
             <h2 id="diferenciais-title">Por Que Escolher Quintilhanos</h2>
@@ -326,46 +302,46 @@
         </div>
     </section>
 
-    <!-- Galeria -->
+    <!-- Galeria Horizontal -->
     <section class="galeria" id="galeria" aria-labelledby="galeria-title">
         <div class="container">
             <h2 id="galeria-title">Galeria de Obras</h2>
             <div class="galeria-grid" style="display: flex !important; flex-direction: row !important; gap: 15px !important;">
                 <a href="imagens/projeto-1.jpg" class="galeria-item">
-                    <img src="imagens/projeto-1-thumb.jpg" alt="Projeto" width="280" height="280">
+                    <img src="imagens/projeto-1-thumb.jpg" alt="Projeto" width="360" height="360">
                 </a>
                 <a href="imagens/projeto-2.jpg" class="galeria-item">
-                    <img src="imagens/projeto-2-thumb.jpg" alt="Projeto" width="280" height="280">
+                    <img src="imagens/projeto-2-thumb.jpg" alt="Projeto" width="360" height="360">
                 </a>
                 <a href="imagens/projeto-3.jpg" class="galeria-item">
-                    <img src="imagens/projeto-3-thumb.jpg" alt="Projeto" width="280" height="280">
+                    <img src="imagens/projeto-3-thumb.jpg" alt="Projeto" width="360" height="360">
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Contato -->
+    <!-- Contato Horizontal -->
     <section class="contato" id="contato" aria-labelledby="contato-title">
         <div class="container">
-            <div class="contato-grid" style="display: flex !important; flex-direction: row !important; gap: 40px !important;">
+            <div class="contato-grid" style="display: flex !important; flex-direction: row !important; gap: 40px !important; align-items: top !important;">
                 <article class="contato-info" style="flex: 1 !important;">
                     <h2>Entre em Contato</h2>
-                    <div class="contato-items">
+                    <div class="contato-items" style="margin-top: 20px;">
                         <p><strong>📞 Telefone:</strong> <a href="tel:+5547992772453">(47) 99277-2453</a></p>
-                        <p><strong>📧 Email:</strong> <a href="mailto:quintilhanoscontrucoeseacabame@gmail.com">contato@quintilhanos.com.br</a></p>
+                        <p style="margin-top: 10px;"><strong>📧 Email:</strong> <a href="mailto:quintilhanoscontrucoeseacabame@gmail.com">contato@quintilhanos.com.br</a></p>
                     </div>
                 </article>
 
-                <form class="contato-form" id="formContato" style="flex: 1 !important;">
+                <form class="contato-form" id="formContato" style="flex: 1 !important; background: #f8fafc; padding: 20px; border-radius: 8px;">
                     <h3>Solicitar Orçamento</h3>
-                    <button type="submit" class="btn btn-primary btn-lg" style="margin-top: 15px;">Solicitar Orçamento</button>
+                    <button type="submit" class="btn btn-primary btn-lg" style="margin-top: 20px; width: 100%;">Solicitar Orçamento</button>
                 </form>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer" role="contentinfo">
+    <!-- Footer Fixo -->
+    <footer class="footer" role="contentinfo" style="padding: 20px 0; background: #1a1a1a; color: #ffffff;">
         <div class="container" style="display: flex !important; flex-direction: row !important; justify-content: space-between !important;">
             <p>&copy; 2026 Quintilhanos. Todos os direitos reservados.</p>
         </div>
