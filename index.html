@@ -4,8 +4,8 @@
     <!-- Meta Tags Essenciais para SEO e Performance -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="description" content="Quintilhanos - Drywall e Pintura Premium em São Paulo. Especialistas em reformas, acabamentos e divisórias com design sofisticado e atendimento feminino.">
-    <meta name="keywords" content="drywall premium, pintura premium, forros, divisórias, reformas, acabamentos, São Paulo">
+    <meta name="description" content="Quintilhanos - Drywall e Pintura Premium em Santa Catarina. Especialistas em reformas, acabamentos e divisórias com design sofisticado e atendimento especializado.">
+    <meta name="keywords" content="drywall premium, pintura premium, forros, divisórias, reformas, acabamentos, Santa Catarina">
     <meta name="author" content="Quintilhanos">
     <meta name="theme-color" content="#1a1a1a">
     
@@ -17,70 +17,226 @@
     <meta property="og:image" content="https://quintilhanos.com.br/imagens/logo-og.png">
     <meta property="og:locale" content="pt_BR">
     
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Quintilhanos - Drywall e Pintura Premium">
-    <meta name="twitter:description" content="Soluções premium em drywall, pintura e acabamentos em São Paulo.">
-    
     <!-- Preload de Recursos Críticos -->
     <link rel="preload" href="style.css" as="style">
     <link rel="preload" href="script.js" as="script">
     
-    <!-- Estilos -->
+    <!-- Estilos Gerais do Site -->
     <link rel="stylesheet" href="style.css" media="screen">
     
-    <title>Quintilhanos - Drywall e Pintura Premium em São Paulo</title>
+    <!-- ESTILOS UNIFICADOS (Força o layout Desktop e impede quebras no mobile) -->
+    <style>
+        /* Reset de layout fluido universal */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body, html {
+            width: 100%;
+            background-color: #ffffff;
+            font-family: sans-serif;
+        }
+
+        /* Container Fixo Padrão Desktop */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* HERO / CAPA ANIMADA UNIFICADA */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 100vh; 
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #161616;
+        }
+
+        /* O VÍDEO COMPORTANDO-SE IGUAL EM TODAS AS TELAS (Sem sumir no celular) */
+        .hero-video-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            min-width: 100%;
+            min-height: 100%;
+            transform: translate(-50%, -50%);
+            object-fit: cover; /* Garante o preenchimento de fundo completo sem sumir ou cortar as bordas do logo */
+            z-index: 1;
+            background-color: #161616;
+            pointer-events: none;
+        }
+
+        /* Película escura protetora para leitura do texto */
+        .hero-video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(22, 22, 22, 0.45); /* Equilíbrio de contraste */
+            z-index: 2;
+        }
+
+        /* Organização do texto e botões sobre a animação */
+        .hero .container {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            color: #ffffff;
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+            margin-bottom: 20px;
+        }
+
+        .hero-subtitle {
+            color: #e5e5e5;
+            font-size: 1.25rem;
+            max-width: 750px;
+            margin: 0 auto 40px auto;
+            line-height: 1.5;
+            text-shadow: 0 2px 12px rgba(0,0,0,0.8);
+        }
+
+        .hero-ctas {
+            display: flex;
+            flex-direction: row !important;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        /* Botões fluidos */
+        .hero-ctas .btn {
+            padding: 14px 28px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 6px;
+            white-space: nowrap;
+            display: inline-block;
+        }
+
+        /* SEÇÃO DE SERVIÇOS EXATAMENTE IGUAL AO DESKTOP (LADO A LADO) */
+        .servicos {
+            padding: 80px 0;
+            background-color: #ffffff;
+        }
+
+        .servicos h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 40px;
+        }
+
+        /* Força a distribuição em colunas horizontais em qualquer aparelho (Sem empilhar) */
+        .servicos-grid {
+            display: flex !important;
+            flex-direction: row !important; 
+            flex-wrap: nowrap !important; /* Impede estritamente que os cartões quebrem para baixo no celular */
+            gap: 24px;
+            width: 100%;
+            overflow-x: auto; /* Se a tela for menor, cria um deslizamento horizontal elegante */
+            padding-bottom: 20px;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .servico-card {
+            flex: 0 0 350px; /* Mantém o tamanho fixo de coluna larga idêntico ao Desktop */
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-top: 3px solid #1a365d;
+            text-align: left;
+        }
+
+        .servico-card h3 {
+            font-size: 1.5rem;
+            color: #1a365d;
+            margin-bottom: 15px;
+        }
+
+        .servico-card p {
+            color: #4a5568;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .servico-features {
+            list-style: none;
+        }
+
+        .servico-features li {
+            margin-bottom: 12px;
+            color: #4a5568;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Mantém o comportamento de grade horizontal do Desktop em celulares e tablets */
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2.5rem !important; }
+            .hero-subtitle { font-size: 1.1rem !important; }
+            .hero-ctas { flex-direction: row !important; width: auto !important; }
+            .hero-ctas .btn { width: auto !important; }
+        }
+    </style>
     
-    <!-- Schema.org LocalBusiness - Estrutura para Google My Business -->
+    <title>Quintilhanos - Drywall e Pintura Premium em Santa Catarina</title>
+    
+    <!-- Schema.org LocalBusiness -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "Quintilhanos",
       "image": "https://quintilhanos.com.br/imagens/logo.png",
-      "description": "Especialistas em drywall premium, pintura premium e acabamentos sofisticados.",
+      "description": "Especialistas em Construções, Acabamentos sofisticados, Pintura premium, Hidraulica e Eletrica.",
       "url": "https://quintilhanos.com.br",
-      "telephone": "+5511999999999",
-      "email": "contato@quintilhanos.com.br",
+      "telephone": "+5547992772453",
+      "email": "quintilhanoscontrucoeseacabame@gmail.com",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Rua das Construções, 123",
-        "addressLocality": "São Paulo",
-        "addressRegion": "SP",
-        "postalCode": "01310-100",
+        "streetAddress": "Rua Bruno Mordhorst, 279",
+        "addressLocality": "Santa Catarina",
+        "addressRegion": "SC",
+        "postalCode": "89062-244",
         "addressCountry": "BR"
       },
       "geo": {
         "@type": "GeoCoordinates",
-        "latitude": "-23.5505",
-        "longitude": "-46.6333"
+        "latitude": "-26.8257306",
+        "longitude": "-49.0799483"
       },
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-          "opens": "08:00",
-          "closes": "18:00"
-        },
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": "Saturday",
-          "opens": "09:00",
-          "closes": "13:00"
-        }
-      ],
       "priceRange": "$$$$"
     }
     </script>
 </head>
 <body>
+
     <!-- Botão WhatsApp Flutuante -->
-    <a href="https://wa.me/5511999999999?text=Olá%20Quintilhanos!%20Gostaria%20de%20solicitar%20um%20orçamento%20para%20drywall%20e%20pintura%20premium." 
+    <a href="https://wa.me/5547992772453?text=Olá%20Quintilhanos!%20Gostaria%20de%20solicitar%20um%20orçamento%20para%20drywall%20e%20pintura%20premium." 
        class="whatsapp-btn" 
        aria-label="Abrir WhatsApp"
        title="Entre em contato via WhatsApp">
         <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-9.746 9.798c0 2.734.732 5.395 2.123 7.712l-2.257 6.144 6.503-2.118c2.211 1.186 4.705 1.815 7.239 1.815 9.868 0 17.75-8.048 17.75-17.954 0-4.774-1.893-9.26-5.335-12.641C19.028 2.24 14.632.52 9.952.52zm0-2.08c5.531 0 10.706 2.165 14.61 6.058C28.4 8.272 30.36 13.415 30.36 18.909c0 11.036-8.864 20.034-19.75 20.034-3.67 0-7.165-.932-10.184-2.56l-.03-.016L.97 40.45l2.126-5.794.016.028c1.783 2.798 4.335 5.087 7.35 6.466 3.016 1.38 6.33 2.112 9.768 2.112 11.036 0 20.034-8.864 20.034-19.75 0-5.33-2.099-10.33-5.914-14.066-3.816-3.736-8.977-5.792-14.418-5.792z"/>
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5 -.67 -.51 -.173 -.008 -.371 -.01 -.57 -.01 -.198 0 -.52 .074 -.792 .372 -.272 .297 -1.04 1.016 -1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.455 5.703 1.456h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
         </svg>
     </a>
 
@@ -90,7 +246,7 @@
             <div class="logo-section">
                 <div class="logo-text">
                     <h1>Quintilhanos</h1>
-                    <p class="tagline">Drywall & Pintura Premium</p>
+                    <p class="tagline">Construções e Acabamentos.</p>
                 </div>
             </div>
             <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
@@ -110,42 +266,52 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section Capa Totalmente Estabilizada -->
     <section class="hero" id="inicio" aria-labelledby="hero-title">
+        <video class="hero-video-bg" autoplay muted loop playsinline preload="auto">
+            <source src="https://www.dropbox.com/scl/fi/e0s79hp9hrodsvtkzt8vf/Quero_que_fa-a_um_pequeno_v-de-1.mp4?rlkey=72rcyg2g5f0nw9wkr8gbxu4rr&st=o12bplyz&raw=1" type="video/mp4">
+        </video>
+        <div class="hero-video-overlay"></div>
+
         <div class="container hero-container">
             <div class="hero-content">
-                <h1 id="hero-title">Drywall e Pintura Premium para Seu Espaço</h1>
-                <p class="hero-subtitle">Transformamos ambientes com soluções sofisticadas, durabilidade garantida e atendimento especializado.</p>
+                <h1 id="hero-title">Construções e Acabamentos</h1>
+                <p class="hero-subtitle">
+                    Transformamos ambientes com soluções sofisticadas, durabilidade garantida e atendimento especializado.
+                </p>
                 <div class="hero-ctas">
                     <a href="#servicos" class="btn btn-primary btn-lg">Conheça Nossos Serviços</a>
-                    <a href="https://wa.me/5511999999999" class="btn btn-secondary btn-lg">Solicitar Orçamento</a>
+                    <a href="https://wa.me/5547992772453" class="btn btn-secondary btn-lg">Solicitar Orçamento</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Serviços Principais -->
+    <!-- Serviços Principais (Forçados Horizontalmente conforme solicitado) -->
     <section class="servicos" id="servicos" aria-labelledby="servicos-title">
         <div class="container">
             <h2 id="servicos-title">Serviços Premium</h2>
             <div class="servicos-grid">
-                <article class="servico-card servico-principal">
+                <article class="servico-card">
                     <h3>Drywall Premium</h3>
                     <p>Sistemas de gesso acartonado de alta performance com design sofisticado.</p>
                     <ul class="servico-features">
-                        <li>Isolamento acústico superior</li>
-                        <li>Resistência ao fogo (RF-60)</li>
-                        <li>Acabamento perfeito</li>
+                        <li>✓ Isolamento acústico superior</li>
+                        <li>✓ Resistência ao fogo (RF-60)</li>
+                        <li>✓ Acabamento perfeito</li>
+                        <li>✓ Construções</li>
+                        <li>✓ Hidraulica</li>
+                        <li>✓ Eletrica</li>
                     </ul>
                 </article>
 
-                <article class="servico-card servico-principal">
+                <article class="servico-card">
                     <h3>Pintura Premium</h3>
                     <p>Acabamentos sofisticados com tintas de alta durabilidade.</p>
                     <ul class="servico-features">
-                        <li>Tintas premium com durabilidade estendida</li>
-                        <li>Cores exclusivas e personalizadas</li>
-                        <li>Preparação profissional de superfícies</li>
+                        <li>✓ Tintas premium com durabilidade estendida</li>
+                        <li>✓ Cores exclusivas e personalizadas</li>
+                        <li>✓ Preparação profissional de superfícies</li>
                     </ul>
                 </article>
 
@@ -153,9 +319,9 @@
                     <h3>Divisórias Premium</h3>
                     <p>Soluções inteligentes para otimizar e segmentar espaços.</p>
                     <ul class="servico-features">
-                        <li>Divisórias deslizantes</li>
-                        <li>Vidro temperado e aço inox</li>
-                        <li>Isolamento acústico integrado</li>
+                        <li>✓ Divisórias deslizantes</li>
+                        <li>✓ Vidro temperado e aço inox</li>
+                        <li>✓ Isolamento acústico integrado</li>
                     </ul>
                 </article>
 
@@ -163,9 +329,9 @@
                     <h3>Forros Sofisticados</h3>
                     <p>Sistemas de forro inovadores que agregam estética.</p>
                     <ul class="servico-features">
-                        <li>Forros acústicos premium</li>
-                        <li>Iluminação integrada</li>
-                        <li>Acabamentos personalizados</li>
+                        <li>✓ Forros acústicos premium</li>
+                        <li>✓ Iluminação integrada</li>
+                        <li>✓ Acabamentos personalizados</li>
                     </ul>
                 </article>
 
@@ -173,9 +339,9 @@
                     <h3>Reformas & Acabamentos</h3>
                     <p>Solução completa para transformação de espaços.</p>
                     <ul class="servico-features">
-                        <li>Projetos customizados</li>
-                        <li>Gestão eficiente de prazos</li>
-                        <li>Acabamento premium</li>
+                        <li>✓ Projetos customizados</li>
+                        <li>✓ Gestão eficiente de prazos</li>
+                        <li>✓ Acabamento premium</li>
                     </ul>
                 </article>
 
@@ -183,9 +349,9 @@
                     <h3>Atendimento Especializado</h3>
                     <p>Equipe profissional para acolher suas necessidades.</p>
                     <ul class="servico-features">
-                        <li>Profissionais especializadas</li>
-                        <li>Comunicação clara</li>
-                        <li>Suporte personalizado</li>
+                        <li>✓ Profissionais especializadas</li>
+                        <li>✓ Comunicação clara</li>
+                        <li>✓ Suporte personalizado</li>
                     </ul>
                 </article>
             </div>
@@ -269,7 +435,7 @@
                 </article>
 
                 <article class="depoimento-card">
-                    <p class="depoimento-texto">"Pintura premium exatamente como procurávamos. Acabamento impecável em cada detalhe. Parceria garantida!"</p>
+                    <p class="depoimento-texto">"Pintura premium exatamente como procurávamos. Acabamento impecável in cada detalhe. Parceria garantida!"</p>
                     <p class="depoimento-autor"><strong>Adriana Ferreira</strong> - Coordenadora de Interiores</p>
                 </article>
             </div>
@@ -323,10 +489,10 @@
                     <p>Agende sua consultoria gratuita e descubra como transformar seu espaço.</p>
                     
                     <div class="contato-items">
-                        <p><strong>📞 Telefone:</strong> <a href="tel:+5511999999999">(11) 99999-9999</a></p>
-                        <p><strong>💬 WhatsApp:</strong> <a href="https://wa.me/5511999999999">Enviar mensagem</a></p>
-                        <p><strong>📧 Email:</strong> <a href="mailto:contato@quintilhanos.com.br">contato@quintilhanos.com.br</a></p>
-                        <p><strong>📍 Localização:</strong> São Paulo - SP</p>
+                        <p><strong>📞 Telefone:</strong> <a href="tel:+5547992772453">(47) 99277-2453</a></p>
+                        <p><strong>💬 WhatsApp:</strong> <a href="https://wa.me/5547992772453">Enviar mensagem</a></p>
+                        <p><strong>📧 Email:</strong> <a href="mailto:quintilhanoscontrucoeseacabame@gmail.com">contato@quintilhanos.com.br</a></p>
+                        <p><strong>📍 Localização:</strong> Santa Catarina - SC</p>
                     </div>
                 </article>
 
@@ -393,9 +559,9 @@
                 </div>
                 <div class="footer-section">
                     <h4>Contato</h4>
-                    <p>📞 <a href="tel:+5511999999999">(47) 99277-24539</a></p>
-                    <p>💬 <a href="https://wa.me/5511999999999">WhatsApp</a></p>
-                    <p>📧 <a href="mailto:contato@quintilhanos.com.br">contato@quintilhanos.com.br</a></p>
+                    <p>📞 <a href="tel:+5547992772453">(47) 99277-2453</a></p>
+                    <p>💬 <a href="https://wa.me/5547992772453">WhatsApp</a></p>
+                    <p>📧 <a href="mailto:quintilhanoscontrucoeseacabame@gmail.com">quintilhanoscontrucoeseacabame@gmail.com</a></p>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -404,7 +570,6 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
     <script src="script.js" defer></script>
 </body>
 </html>
