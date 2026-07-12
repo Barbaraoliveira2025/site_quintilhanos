@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    <!-- Meta Tags Essenciais para SEO e Performance -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="description" content="Quintilhanos - Drywall e Pintura Premium em Santa Catarina. Especialistas em reformas, acabamentos e divisórias com design sofisticado e atendimento feminino.">
-    <meta name="keywords" content="drywall premium, pintura premium, forros, divisórias, reformas, acabamentos, Santa Catarina">
+    <meta name="description" content="Quintilhanos - Drywall e Pintura Premium em São Paulo. Especialistas em reformas, acabamentos e divisórias com design sofisticado e atendimento feminino.">
+    <meta name="keywords" content="drywall premium, pintura premium, forros, divisórias, reformas, acabamentos, São Paulo">
     <meta name="author" content="Quintilhanos">
     <meta name="theme-color" content="#1a1a1a">
     
+    <!-- Open Graph para Redes Sociais -->
     <meta property="og:type" content="business.business">
     <meta property="og:title" content="Quintilhanos - Drywall e Pintura Premium">
     <meta property="og:description" content="Transformamos seus espaços com soluções premium em drywall, pintura e acabamentos sofisticados.">
@@ -15,113 +17,43 @@
     <meta property="og:image" content="https://quintilhanos.com.br/imagens/logo-og.png">
     <meta property="og:locale" content="pt_BR">
     
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Quintilhanos - Drywall e Pintura Premium">
-    <meta name="twitter:description" content="Soluções premium em drywall, pintura e acabamentos em Santa Catarina.">
+    <meta name="twitter:description" content="Soluções premium em drywall, pintura e acabamentos em São Paulo.">
     
+    <!-- Preload de Recursos Críticos -->
     <link rel="preload" href="style.css" as="style">
     <link rel="preload" href="script.js" as="script">
     
+    <!-- Estilos -->
     <link rel="stylesheet" href="style.css" media="screen">
     
-    <style>
-        /* Ajuste na Hero Section para se comportar como a capa container */
-        .hero {
-            position: relative;
-            width: 100%;
-            height: 100vh; /* Ocupa 100% da altura da tela inicial */
-            min-height: 600px;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #1a1a1a;
-        }
-
-        /* O vídeo esticado de forma inteligente para preencher o fundo igual a uma capa */
-        .hero-video-bg {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            transform: translate(-50%, -50%);
-            object-fit: cover; /* Faz o vídeo cobrir toda a área sem distorcer */
-            z-index: 1; /* Camada mais baixa */
-            pointer-events: none; /* Ignora cliques para não atrapalhar os botões */
-        }
-
-        /* Camada escura por cima do vídeo para dar contraste ao texto (Overlay) */
-        .hero-video-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(180deg, rgba(26,26,26,0.5) 0%, rgba(26,26,26,0.8) 100%);
-            z-index: 2; /* Fica acima do vídeo e abaixo do texto */
-        }
-
-        /* O conteúdo do site fica na camada de cima, perfeitamente legível */
-        .hero .container {
-            position: relative;
-            z-index: 3; /* Traz o texto e botões para frente */
-            text-align: center;
-            padding: 0 20px;
-        }
-
-        .hero-content h1 {
-            color: #ffffff;
-            font-size: 2.8rem;
-            font-weight: 700;
-            text-shadow: 0 4px 15px rgba(0,0,0,0.6);
-            margin-bottom: 20px;
-        }
-
-        .hero-subtitle {
-            color: #e0e0e0;
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 40px auto;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.6);
-        }
-
-        @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 2rem;
-            }
-            .hero-subtitle {
-                font-size: 1rem;
-            }
-        }
-    </style>
+    <title>Quintilhanos - Drywall e Pintura Premium em São Paulo</title>
     
-    <title>Quintilhanos - Drywall e Pintura Premium em Santa Catarina</title>
-    
+    <!-- Schema.org LocalBusiness - Estrutura para Google My Business -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "Quintilhanos",
       "image": "https://quintilhanos.com.br/imagens/logo.png",
-      "description": "Especialistas em Construções, Acabamentos sofisticados, Pintura premium, Hidraulica e Eletrica.",
+      "description": "Especialistas em drywall premium, pintura premium e acabamentos sofisticados.",
       "url": "https://quintilhanos.com.br",
-      "telephone": "+5547992772453",
-      "email": "quintilhanoscontrucoeseacabame@gmail.com",
+      "telephone": "+5511999999999",
+      "email": "contato@quintilhanos.com.br",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Rua Bruno Mordhorst, 279",
-        "addressLocality": "Santa Catarina",
-        "addressRegion": "SC",
-        "postalCode": "89062-244",
+        "streetAddress": "Rua das Construções, 123",
+        "addressLocality": "São Paulo",
+        "addressRegion": "SP",
+        "postalCode": "01310-100",
         "addressCountry": "BR"
       },
       "geo": {
         "@type": "GeoCoordinates",
-        "latitude": "-26.8257306",
-        "longitude": "-49.0799483"
+        "latitude": "-23.5505",
+        "longitude": "-46.6333"
       },
       "openingHoursSpecification": [
         {
@@ -142,22 +74,23 @@
     </script>
 </head>
 <body>
-
-    <a href="https://wa.me/5547992772453?text=Olá%20Quintilhanos!%20Gostaria%20de%20solicitar%20um%20orçamento%20para%20drywall%20e%20pintura%20premium." 
+    <!-- Botão WhatsApp Flutuante -->
+    <a href="https://wa.me/5511999999999?text=Olá%20Quintilhanos!%20Gostaria%20de%20solicitar%20um%20orçamento%20para%20drywall%20e%20pintura%20premium." 
        class="whatsapp-btn" 
        aria-label="Abrir WhatsApp"
        title="Entre em contato via WhatsApp">
         <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5 -.67 -.51 -.173 -.008 -.371 -.01 -.57 -.01 -.198 0 -.52 .074 -.792 .372 -.272 .297 -1.04 1.016 -1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.455 5.703 1.456h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-9.746 9.798c0 2.734.732 5.395 2.123 7.712l-2.257 6.144 6.503-2.118c2.211 1.186 4.705 1.815 7.239 1.815 9.868 0 17.75-8.048 17.75-17.954 0-4.774-1.893-9.26-5.335-12.641C19.028 2.24 14.632.52 9.952.52zm0-2.08c5.531 0 10.706 2.165 14.61 6.058C28.4 8.272 30.36 13.415 30.36 18.909c0 11.036-8.864 20.034-19.75 20.034-3.67 0-7.165-.932-10.184-2.56l-.03-.016L.97 40.45l2.126-5.794.016.028c1.783 2.798 4.335 5.087 7.35 6.466 3.016 1.38 6.33 2.112 9.768 2.112 11.036 0 20.034-8.864 20.034-19.75 0-5.33-2.099-10.33-5.914-14.066-3.816-3.736-8.977-5.792-14.418-5.792z"/>
         </svg>
     </a>
 
+    <!-- Navegação Principal -->
     <nav class="navbar" role="navigation" aria-label="Navegação principal">
         <div class="container">
             <div class="logo-section">
                 <div class="logo-text">
                     <h1>Quintilhanos</h1>
-                    <p class="tagline">Construções e Acabamentos.</p>
+                    <p class="tagline">Drywall & Pintura Premium</p>
                 </div>
             </div>
             <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
@@ -177,28 +110,21 @@
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <section class="hero" id="inicio" aria-labelledby="hero-title">
-        
-        <video class="hero-video-bg" autoplay muted loop playsinline preload="auto">
-            <source src="https://www.dropbox.com/scl/fi/e0s79hp9hrodsvtkzt8vf/Quero_que_fa-a_um_pequeno_v-de-1.mp4?rlkey=72rcyg2g5f0nw9wkr8gbxu4rr&st=o12bplyz&raw=1" type="video/mp4">
-        </video>
-        
-        <div class="hero-video-overlay"></div>
-
         <div class="container hero-container">
             <div class="hero-content">
-                <h1 id="hero-title">Construções e Acabamentos</h1>
-                <p class="hero-subtitle">
-                    Transformamos ambientes com soluções sofisticadas, durabilidade garantida e atendimento especializado.
-                </p>
+                <h1 id="hero-title">Drywall e Pintura Premium para Seu Espaço</h1>
+                <p class="hero-subtitle">Transformamos ambientes com soluções sofisticadas, durabilidade garantida e atendimento especializado.</p>
                 <div class="hero-ctas">
                     <a href="#servicos" class="btn btn-primary btn-lg">Conheça Nossos Serviços</a>
-                    <a href="https://wa.me/5547992772453" class="btn btn-secondary btn-lg">Solicitar Orçamento</a>
+                    <a href="https://wa.me/5511999999999" class="btn btn-secondary btn-lg">Solicitar Orçamento</a>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Serviços Principais -->
     <section class="servicos" id="servicos" aria-labelledby="servicos-title">
         <div class="container">
             <h2 id="servicos-title">Serviços Premium</h2>
@@ -210,9 +136,6 @@
                         <li>Isolamento acústico superior</li>
                         <li>Resistência ao fogo (RF-60)</li>
                         <li>Acabamento perfeito</li>
-                        <li>Construções</li>
-                        <li>Hidraulica</li>
-                        <li>Eletrica</li>
                     </ul>
                 </article>
 
@@ -269,6 +192,7 @@
         </div>
     </section>
 
+    <!-- Diferenciais -->
     <section class="diferenciais" id="diferenciais" aria-labelledby="diferenciais-title">
         <div class="container">
             <h2 id="diferenciais-title">Por Que Escolher Quintilhanos</h2>
@@ -301,6 +225,7 @@
         </div>
     </section>
 
+    <!-- Galeria -->
     <section class="galeria" id="galeria" aria-labelledby="galeria-title">
         <div class="container">
             <h2 id="galeria-title">Galeria de Obras</h2>
@@ -328,6 +253,7 @@
         </div>
     </section>
 
+    <!-- Depoimentos -->
     <section class="depoimentos" id="depoimentos" aria-labelledby="depoimentos-title">
         <div class="container">
             <h2 id="depoimentos-title">Depoimentos de Clientes</h2>
@@ -350,6 +276,7 @@
         </div>
     </section>
 
+    <!-- FAQ -->
     <section class="faq" id="faq" aria-labelledby="faq-title">
         <div class="container">
             <h2 id="faq-title">Dúvidas Frequentes</h2>
@@ -387,6 +314,7 @@
         </div>
     </section>
 
+    <!-- Contato -->
     <section class="contato" id="contato" aria-labelledby="contato-title">
         <div class="container">
             <div class="contato-grid">
@@ -395,10 +323,10 @@
                     <p>Agende sua consultoria gratuita e descubra como transformar seu espaço.</p>
                     
                     <div class="contato-items">
-                        <p><strong>📞 Telefone:</strong> <a href="tel:+5547992772453">(47) 99277-2453</a></p>
-                        <p><strong>💬 WhatsApp:</strong> <a href="https://wa.me/5547992772453">Enviar mensagem</a></p>
-                        <p><strong>📧 Email:</strong> <a href="mailto:quintilhanoscontrucoeseacabame@gmail.com">contato@quintilhanos.com.br</a></p>
-                        <p><strong>📍 Localização:</strong> Santa Catarina - SC</p>
+                        <p><strong>📞 Telefone:</strong> <a href="tel:+5511999999999">(11) 99999-9999</a></p>
+                        <p><strong>💬 WhatsApp:</strong> <a href="https://wa.me/5511999999999">Enviar mensagem</a></p>
+                        <p><strong>📧 Email:</strong> <a href="mailto:contato@quintilhanos.com.br">contato@quintilhanos.com.br</a></p>
+                        <p><strong>📍 Localização:</strong> São Paulo - SP</p>
                     </div>
                 </article>
 
@@ -444,6 +372,7 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer class="footer" role="contentinfo">
         <div class="container">
             <div class="footer-content">
@@ -464,9 +393,9 @@
                 </div>
                 <div class="footer-section">
                     <h4>Contato</h4>
-                    <p>📞 <a href="tel:+5547992772453">(47) 99277-2453</a></p>
-                    <p>💬 <a href="https://wa.me/5547992772453">WhatsApp</a></p>
-                    <p>📧 <a href="mailto:quintilhanoscontrucoeseacabame@gmail.com">quintilhanoscontrucoeseacabame@gmail.com</a></p>
+                    <p>📞 <a href="tel:+5511999999999">(47) 99277-24539</a></p>
+                    <p>💬 <a href="https://wa.me/5511999999999">WhatsApp</a></p>
+                    <p>📧 <a href="mailto:contato@quintilhanos.com.br">contato@quintilhanos.com.br</a></p>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -475,6 +404,7 @@
         </div>
     </footer>
 
+    <!-- Scripts -->
     <script src="script.js" defer></script>
 </body>
 </html>
