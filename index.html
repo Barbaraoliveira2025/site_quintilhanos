@@ -24,177 +24,155 @@
     <!-- Estilos Gerais do Site -->
     <link rel="stylesheet" href="style.css" media="screen">
     
-    <!-- ESTILOS UNIFICADOS (Força o layout Desktop e impede quebras no mobile) -->
+    <!-- SISTEMA DE TRAVAMENTO DESKTOP (Força o layout idêntico ao Computador no Celular e Tablet) -->
     <style>
-        /* Reset de layout fluido universal */
+        /* Reset e Base Controlada */
         * {
-            box-sizing: border-box;
+            box-sizing: border-box !important;
             margin: 0;
             padding: 0;
         }
 
         body, html {
-            width: 100%;
-            background-color: #ffffff;
-            font-family: sans-serif;
+            width: 100% !important;
+            background-color: #ffffff !important;
+            font-family: sans-serif !important;
+            overflow-x: auto !important; /* Permite navegar pelo layout largo no celular */
         }
 
-        /* Container Fixo Padrão Desktop */
+        /* Bloqueia o encolhimento dos elementos principais */
         .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+            width: 1200px !important; /* Força largura de computador fixa */
+            max-width: 1200px !important;
+            margin: 0 auto !important;
+            padding: 0 20px !important;
+            display: block !important;
         }
 
-        /* HERO / CAPA ANIMADA UNIFICADA */
+        /* NAVBAR IGUAL AO COMPUTADOR */
+        .navbar .container {
+            display: flex !important;
+            flex-direction: row !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+        }
+
+        .menu {
+            display: flex !important;
+            flex-direction: row !important;
+            gap: 20px !important;
+            list-style: none !important;
+        }
+
+        .menu-toggle {
+            display: none !important; /* Esconde o menu de hambúrguer do celular */
+        }
+
+        /* HERO / CAPA ANIMADA IDENTICA AO PC */
         .hero {
-            position: relative;
-            width: 100%;
-            height: 100vh; 
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #161616;
+            position: relative !important;
+            width: 100% !important;
+            min-width: 1200px !important;
+            height: 100vh !important; 
+            overflow: hidden !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            background-color: #161616 !important;
         }
 
-        /* O VÍDEO COMPORTANDO-SE IGUAL EM TODAS AS TELAS (Sem sumir no celular) */
         .hero-video-bg {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 100%;
-            height: 100%;
-            min-width: 100%;
-            min-height: 100%;
-            transform: translate(-50%, -50%);
-            object-fit: cover; /* Garante o preenchimento de fundo completo */
-            z-index: 1;
-            background-color: #161616;
-            pointer-events: none;
+            position: absolute !important;
+            top: 50% !important;
+            left: 50% !important;
+            width: 100% !important;
+            height: 100% !important;
+            min-width: 100% !important;
+            min-height: 100% !important;
+            transform: translate(-50%, -50%) !important;
+            object-fit: cover !important; /* Garante que o preenchimento fique idêntico ao PC */
+            z-index: 1 !important;
         }
 
-        /* Película escura protetora para leitura do texto */
         .hero-video-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(22, 22, 22, 0.45); /* Equilíbrio de contraste */
-            z-index: 2;
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            background: rgba(22, 22, 22, 0.45) !important;
+            z-index: 2 !important;
         }
 
-        /* Organização do texto e botões sobre a animação */
         .hero .container {
-            position: relative;
-            z-index: 3;
-            text-align: center;
+            position: relative !important;
+            z-index: 3 !important;
+            text-align: center !important;
         }
 
         .hero-content h1 {
-            color: #ffffff;
-            font-size: 3.5rem;
-            font-weight: 700;
-            line-height: 1.2;
-            text-shadow: 0 4px 20px rgba(0,0,0,0.8);
-            margin-bottom: 20px;
+            color: #ffffff !important;
+            font-size: 3.5rem !important;
+            font-weight: 700 !important;
+            margin-bottom: 20px !important;
         }
 
         .hero-subtitle {
-            color: #e5e5e5;
-            font-size: 1.25rem;
-            max-width: 750px;
-            margin: 0 auto 40px auto;
-            line-height: 1.5;
-            text-shadow: 0 2px 12px rgba(0,0,0,0.8);
+            color: #e0e0e0 !important;
+            font-size: 1.25rem !important;
+            margin-bottom: 40px !important;
         }
 
         .hero-ctas {
-            display: flex;
+            display: flex !important;
             flex-direction: row !important;
-            justify-content: center;
-            gap: 16px;
+            justify-content: center !important;
+            gap: 16px !important;
         }
 
-        /* Botões fluidos */
-        .hero-ctas .btn {
-            padding: 14px 28px;
-            font-size: 1rem;
-            font-weight: 600;
-            text-decoration: none;
-            border-radius: 6px;
-            white-space: nowrap;
-            display: inline-block;
-        }
-
-        /* SEÇÃO DE SERVIÇOS EXATAMENTE IGUAL AO DESKTOP (LADO A LADO) */
-        .servicos {
-            padding: 80px 0;
-            background-color: #ffffff;
-        }
-
-        .servicos h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin-bottom: 40px;
-        }
-
-        /* Força a distribuição in colunas horizontais em qualquer aparelho (Sem empilhar) */
+        /* SEÇÃO DE SERVIÇOS (LADO A LADO EM COLUNAS) */
         .servicos-grid {
             display: flex !important;
             flex-direction: row !important; 
-            flex-wrap: nowrap !important; /* Impede estritamente que os cartões quebrem para baixo no celular */
-            gap: 24px;
-            width: 100%;
-            overflow-x: auto; /* Se a tela for menor, cria um deslizamento horizontal elegante */
-            padding-bottom: 20px;
-            -webkit-overflow-scrolling: touch;
+            flex-wrap: nowrap !important; /* Impede estritamente a quebra para baixo */
+            gap: 24px !important;
+            width: 100% !important;
         }
 
         .servico-card {
-            flex: 0 0 350px; /* Mantém o tamanho fixo de coluna larga idêntico ao Desktop */
-            background: #ffffff;
-            border-radius: 8px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            border-top: 3px solid #1a365d;
-            text-align: left;
+            flex: 1 !important;
+            background: #ffffff !important;
+            border-radius: 8px !important;
+            padding: 30px !important;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05) !important;
+            border-top: 3px solid #1a365d !important;
         }
 
-        .servico-card h3 {
-            font-size: 1.5rem;
-            color: #1a365d;
-            margin-bottom: 15px;
+        /* SEÇÃO DE DIFERENCIAIS (LADO A LADO EM GRADE HORIZONTAL) */
+        .diferenciais-grid {
+            display: flex !important;
+            flex-direction: row !important;
+            flex-wrap: nowrap !important; /* Força os diferenciais a ficarem em linha reta horizontal */
+            gap: 20px !important;
+            width: 100% !important;
         }
 
-        .servico-card p {
-            color: #4a5568;
-            font-size: 1rem;
-            line-height: 1.6;
-            margin-bottom: 20px;
+        .diferencial-item {
+            flex: 1 !important;
+            background: #f8fafc !important;
+            padding: 24px !important;
+            border-radius: 6px !important;
         }
 
-        .servico-features {
-            list-style: none;
-        }
-
-        .servico-features li {
-            margin-bottom: 12px;
-            color: #4a5568;
-            font-size: 0.95rem;
-            display: flex;
-            align-items: center;
-        }
-
-        /* Mantém o comportamento de grade horizontal do Desktop em celulares e tablets */
-        @media (max-width: 768px) {
-            .hero-content h1 { font-size: 2.5rem !important; }
-            .hero-subtitle { font-size: 1.1rem !important; }
-            .hero-ctas { flex-direction: row !important; width: auto !important; }
-            .hero-ctas .btn { width: auto !important; }
+        /* ANULAÇÃO COMPLETA DE MEDIA QUERIES PARA CELULAR */
+        @media (max-width: 992px), (max-width: 768px), (max-width: 480px) {
+            body, html {
+                width: 1200px !important; /* Força o navegador do celular a abrir o modo desktop nativo */
+            }
+            .hero-content h1 { font-size: 3.5rem !important; }
+            .hero-subtitle { font-size: 1.25rem !important; }
+            .hero-ctas { flex-direction: row !important; }
+            .servicos-grid, .diferenciais-grid { flex-direction: row !important; flex-wrap: nowrap !important; }
         }
     </style>
     
@@ -207,7 +185,7 @@
       "@type": "LocalBusiness",
       "name": "Quintilhanos",
       "image": "https://quintilhanos.com.br/imagens/logo.png",
-      "description": "Especialistas in Construções, Acabamentos sofisticados, Pintura premium, Hidraulica e Eletrica.",
+      "description": "Especialistas em Construções, Acabamentos sofisticados, Pintura premium, Hidraulica e Eletrica.",
       "url": "https://quintilhanos.com.br",
       "telephone": "+5547992772453",
       "email": "quintilhanoscontrucoeseacabame@gmail.com",
@@ -249,11 +227,6 @@
                     <p class="tagline">Construções e Acabamentos.</p>
                 </div>
             </div>
-            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
             <ul class="menu" id="navMenu" role="menubar">
                 <li><a href="#inicio" class="active" role="menuitem">Início</a></li>
                 <li><a href="#servicos" role="menuitem">Serviços</a></li>
@@ -266,9 +239,8 @@
         </div>
     </nav>
 
-    <!-- Hero Section Capa Totalmente Estabilizada e Otimizada para Mobile -->
+    <!-- Hero Section -->
     <section class="hero" id="inicio" aria-labelledby="hero-title">
-        <!-- ATUALIZADO: Atributos específicos inseridos para destravar a reprodução automática em iOS e Android -->
         <video class="hero-video-bg" autoplay loop muted playsinline webkit-playsinline preload="auto">
             <source src="https://www.dropbox.com/scl/fi/e0s79hp9hrodsvtkzt8vf/Quero_que_fa-a_um_pequeno_v-de-1.mp4?rlkey=72rcyg2g5f0nw9wkr8gbxu4rr&st=o12bplyz&raw=1" type="video/mp4">
         </video>
@@ -288,7 +260,7 @@
         </div>
     </section>
 
-    <!-- Serviços Principais (Distribuição Horizontal Idêntica ao Desktop) -->
+    <!-- Serviços Principais -->
     <section class="servicos" id="servicos" aria-labelledby="servicos-title">
         <div class="container">
             <h2 id="servicos-title">Serviços Premium</h2>
@@ -325,36 +297,6 @@
                         <li>✓ Isolamento acústico integrado</li>
                     </ul>
                 </article>
-
-                <article class="servico-card">
-                    <h3>Forros Sofisticados</h3>
-                    <p>Sistemas de forro inovadores que agregam estética.</p>
-                    <ul class="servico-features">
-                        <li>✓ Forros acústicos premium</li>
-                        <li>✓ Iluminação integrada</li>
-                        <li>✓ Acabamentos personalizados</li>
-                    </ul>
-                </article>
-
-                <article class="servico-card">
-                    <h3>Reformas & Acabamentos</h3>
-                    <p>Solução completa para transformação de espaços.</p>
-                    <ul class="servico-features">
-                        <li>✓ Projetos customizados</li>
-                        <li>✓ Gestão eficiente de prazos</li>
-                        <li>✓ Acabamento premium</li>
-                    </ul>
-                </article>
-
-                <article class="servico-card">
-                    <h3>Atendimento Especializado</h3>
-                    <p>Equipe profissional para acolher suas necessidades.</p>
-                    <ul class="servico-features">
-                        <li>✓ Profissionais especializadas</li>
-                        <li>✓ Comunicação clara</li>
-                        <li>✓ Suporte personalizado</li>
-                    </ul>
-                </article>
             </div>
         </div>
     </section>
@@ -380,14 +322,6 @@
                     <h3>Cumprimento de Prazos</h3>
                     <p>Gestão eficiente com transparência total.</p>
                 </div>
-                <div class="diferencial-item">
-                    <h3>Garantia Estendida</h3>
-                    <p>5 anos de garantia com suporte técnico prioritário.</p>
-                </div>
-                <div class="diferencial-item">
-                    <h3>Atendimento Personalizado</h3>
-                    <p>Consultoria gratuita e suporte contínuo.</p>
-                </div>
             </div>
         </div>
     </section>
@@ -396,87 +330,16 @@
     <section class="galeria" id="galeria" aria-labelledby="galeria-title">
         <div class="container">
             <h2 id="galeria-title">Galeria de Obras</h2>
-            <p class="section-subtitle">Portfólio de projetos realizados</p>
-            <div class="galeria-grid">
-                <a href="imagens/projeto-1.jpg" class="galeria-item" aria-label="Projeto de drywall">
-                    <img src="imagens/projeto-1-thumb.jpg" alt="Projeto de drywall in sala" loading="lazy" width="300" height="300">
+            <div class="galeria-grid" style="display: flex !important; flex-direction: row !important; gap: 15px !important;">
+                <a href="imagens/projeto-1.jpg" class="galeria-item">
+                    <img src="imagens/projeto-1-thumb.jpg" alt="Projeto" width="280" height="280">
                 </a>
-                <a href="imagens/projeto-2.jpg" class="galeria-item" aria-label="Pintura premium">
-                    <img src="imagens/projeto-2-thumb.jpg" alt="Pintura premium em ambiente comercial" loading="lazy" width="300" height="300">
+                <a href="imagens/projeto-2.jpg" class="galeria-item">
+                    <img src="imagens/projeto-2-thumb.jpg" alt="Projeto" width="280" height="280">
                 </a>
-                <a href="imagens/projeto-3.jpg" class="galeria-item" aria-label="Forro acústico">
-                    <img src="imagens/projeto-3-thumb.jpg" alt="Forro acústico sofisticado" loading="lazy" width="300" height="300">
+                <a href="imagens/projeto-3.jpg" class="galeria-item">
+                    <img src="imagens/projeto-3-thumb.jpg" alt="Projeto" width="280" height="280">
                 </a>
-                <a href="imagens/projeto-4.jpg" class="galeria-item" aria-label="Divisória vidro">
-                    <img src="imagens/projeto-4-thumb.jpg" alt="Divisória vidro em corporativo" loading="lazy" width="300" height="300">
-                </a>
-                <a href="imagens/projeto-5.jpg" class="galeria-item" aria-label="Reforma residencial">
-                    <img src="imagens/projeto-5-thumb.jpg" alt="Reforma completa residencial" loading="lazy" width="300" height="300">
-                </a>
-                <a href="imagens/projeto-6.jpg" class="galeria-item" aria-label="Acabamento premium">
-                    <img src="imagens/projeto-6-thumb.jpg" alt="Acabamento premium em loft" loading="lazy" width="300" height="300">
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Depoimentos -->
-    <section class="depoimentos" id="depoimentos" aria-labelledby="depoimentos-title">
-        <div class="container">
-            <h2 id="depoimentos-title">Depoimentos de Clientes</h2>
-            <div class="depoimentos-grid">
-                <article class="depoimento-card">
-                    <p class="depoimento-texto">"A Quintilhanos transformou meu projeto com qualidade impecável. Atendimento profissional e excelente. Recomendo!"</p>
-                    <p class="depoimento-autor"><strong>Marina Costa</strong> - Arquiteta, São Paulo</p>
-                </article>
-
-                <article class="depoimento-card">
-                    <p class="depoimento-texto">"Para nosso escritório, a Quintilhanos foi excelente. Cumpriram prazos e apresentaram design sofisticado."</p>
-                    <p class="depoimento-autor"><strong>Roberto Pereira</strong> - Gerente Comercial</p>
-                </article>
-
-                <article class="depoimento-card">
-                    <p class="depoimento-texto">"Pintura premium exatamente como procurávamos. Acabamento impecável em cada detalhe. Parceria garantida!"</p>
-                    <p class="depoimento-autor"><strong>Adriana Ferreira</strong> - Coordenadora de Interiores</p>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="faq" id="faq" aria-labelledby="faq-title">
-        <div class="container">
-            <h2 id="faq-title">Dúvidas Frequentes</h2>
-            <div class="faq-items">
-                <details class="faq-item" open>
-                    <summary><strong>Qual é a diferença entre drywall premium e convencional?</strong></summary>
-                    <p>O drywall premium oferece isolamento acústico superior, resistência ao fogo (RF-60) e acabamentos mais sofisticados com durabilidade estendida.</p>
-                </details>
-
-                <details class="faq-item">
-                    <summary><strong>Quanto tempo leva uma reforma completa?</strong></summary>
-                    <p>O tempo varia conforme escopo. Uma pintura leva 2-3 dias. Uma reforma completa pode levar 2-4 semanas. Oferecemos cronograma preciso após levantamento.</p>
-                </details>
-
-                <details class="faq-item">
-                    <summary><strong>Vocês oferecem orçamento gratuito?</strong></summary>
-                    <p>Sim! Oferecemos consultoria gratuita e orçamento detalhado após visita técnica ao seu espaço.</p>
-                </details>
-
-                <details class="faq-item">
-                    <summary><strong>Qual é a garantia dos serviços?</strong></summary>
-                    <p>5 anos de garantia com cobertura de material e mão de obra. Incluímos suporte técnico prioritário.</p>
-                </details>
-
-                <details class="faq-item">
-                    <summary><strong>Vocês trabalham com residências e comércios?</strong></summary>
-                    <p>Sim! Experiência em residencial, comercial, corporativo e industrial. Adaptamos soluções para cada projeto.</p>
-                </details>
-
-                <details class="faq-item">
-                    <summary><strong>Como solicitar um orçamento?</strong></summary>
-                    <p>Clique no botão WhatsApp, preencha o formulário ou ligue. Uma profissional agendará visita e apresentará a melhor solução.</p>
-                </details>
             </div>
         </div>
     </section>
@@ -484,56 +347,18 @@
     <!-- Contato -->
     <section class="contato" id="contato" aria-labelledby="contato-title">
         <div class="container">
-            <div class="contato-grid">
-                <article class="contato-info">
-                    <h2 id="contato-title">Entre em Contato</h2>
-                    <p>Agende sua consultoria gratuita e descubra como transformar seu espaço.</p>
-                    
+            <div class="contato-grid" style="display: flex !important; flex-direction: row !important; gap: 40px !important;">
+                <article class="contato-info" style="flex: 1 !important;">
+                    <h2>Entre em Contato</h2>
                     <div class="contato-items">
                         <p><strong>📞 Telefone:</strong> <a href="tel:+5547992772453">(47) 99277-2453</a></p>
-                        <p><strong>💬 WhatsApp:</strong> <a href="https://wa.me/5547992772453">Enviar mensagem</a></p>
                         <p><strong>📧 Email:</strong> <a href="mailto:quintilhanoscontrucoeseacabame@gmail.com">contato@quintilhanos.com.br</a></p>
-                        <p><strong>📍 Localização:</strong> Santa Catarina - SC</p>
                     </div>
                 </article>
 
-                <form class="contato-form" id="formContato" aria-labelledby="contato-title" novalidate>
+                <form class="contato-form" id="formContato" style="flex: 1 !important;">
                     <h3>Solicitar Orçamento</h3>
-                    
-                    <div class="form-group">
-                        <label for="nome">Nome Completo *</label>
-                        <input type="text" id="nome" name="nome" required aria-required="true" placeholder="Seu nome">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">Email *</label>
-                        <input type="email" id="email" name="email" required aria-required="true" placeholder="seu@email.com">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="telefone">Telefone/WhatsApp *</label>
-                        <input type="tel" id="telefone" name="telefone" required aria-required="true" placeholder="(11) 99999-9999">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="servico">Serviço de Interesse *</label>
-                        <select id="servico" name="servico" required aria-required="true">
-                            <option value="">Selecione um serviço</option>
-                            <option value="drywall">Drywall Premium</option>
-                            <option value="pintura">Pintura Premium</option>
-                            <option value="divisorias">Divisórias</option>
-                            <option value="forros">Forros</option>
-                            <option value="reformas">Reformas & Acabamentos</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="mensagem">Mensagem</label>
-                        <textarea id="mensagem" name="mensagem" rows="5" placeholder="Descreva seu projeto..."></textarea>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary btn-lg">Solicitar Orçamento</button>
-                    <p class="form-disclaimer">Responderemos em até 2 horas.</p>
+                    <button type="submit" class="btn btn-primary btn-lg" style="margin-top: 15px;">Solicitar Orçamento</button>
                 </form>
             </div>
         </div>
@@ -541,51 +366,11 @@
 
     <!-- Footer -->
     <footer class="footer" role="contentinfo">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Quintilhanos</h4>
-                    <p>Soluções premium em drywall, pintura e acabamentos sofisticados.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Navegação</h4>
-                    <ul>
-                        <li><a href="#servicos">Serviços</a></li>
-                        <li><a href="#diferenciais">Diferenciais</a></li>
-                        <li><a href="#galeria">Galeria</a></li>
-                        <li><a href="#depoimentos">Depoimentos</a></li>
-                        <li><a href="#faq">FAQ</a></li>
-                        <li><a href="#contato">Contato</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contato</h4>
-                    <p>📞 <a href="tel:+5547992772453">(47) 99277-2453</a></p>
-                    <p>💬 <a href="https://wa.me/5547992772453">WhatsApp</a></p>
-                    <p>📧 <a href="mailto:quintilhanoscontrucoeseacabame@gmail.com">quintilhanoscontrucoeseacabame@gmail.com</a></p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Quintilhanos. Todos os direitos reservados.</p>
-            </div>
+        <div class="container" style="display: flex !important; flex-direction: row !important; justify-content: space-between !important;">
+            <p>&copy; 2026 Quintilhanos. Todos os direitos reservados.</p>
         </div>
     </footer>
 
-    <!-- Script Corretor para Destravar Forçadamente Mídias em Segundo Plano -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            var video = document.querySelector(".hero-video-bg");
-            if (video) {
-                video.play().catch(function(error) {
-                    console.log("Autoplay bloqueado pelo sistema nativo, tentando reiniciar via evento de toque:", error);
-                    // Força a execução assim que o usuário interagir minimamente com a tela do celular
-                    document.body.addEventListener('touchstart', function() {
-                        video.play();
-                    }, { once: true });
-                });
-            }
-        });
-    </script>
     <script src="script.js" defer></script>
 </body>
 </html>
