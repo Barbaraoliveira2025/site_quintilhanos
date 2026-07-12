@@ -2,11 +2,12 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <!-- REMOVIDA A TAG VIEWPORT RESPONSIVA PARA FORÇAR O MODO DESKTOP EM TODAS AS TELAS -->
+    <!-- ATIVADA A TAG MÓVEL CORRETA: O site se adapta com elegância sem quebrar o fluxo -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="description" content="Quintilhanos - Drywall e Pintura Premium em Santa Catarina. Especialistas em reformas, acabamentos e divisórias com design sofisticado e atendimento especializado.">
     <meta name="keywords" content="drywall premium, pintura premium, forros, divisórias, reformas, acabamentos, Santa Catarina">
     <meta name="author" content="Quintilhanos">
-    <meta name="theme-color" content="#1a1a1a">
+    <meta name="theme-color" content="#161616">
     
     <!-- Open Graph para Redes Sociais -->
     <meta property="og:type" content="business.business">
@@ -14,169 +15,302 @@
     <meta property="og:description" content="Transformamos seus espaços com soluções premium em drywall, pintura e acabamentos sofisticados.">
     <meta property="og:url" content="https://quintilhanos.com.br/">
     <meta property="og:image" content="https://quintilhanos.com.br/imagens/logo-og.png">
-    <meta property="og:locale" content="pt_BR">
-    
-    <!-- Preload de Recursos Críticos -->
-    <link rel="preload" href="style.css" as="style">
-    <link rel="preload" href="script.js" as="script">
     
     <!-- Estilos Gerais do Site -->
     <link rel="stylesheet" href="style.css" media="screen">
     
-    <!-- BLOQUEIO ABSOLUTO DESKTOP (Anula qualquer comportamento responsivo do style.css) -->
+    <!-- ARQUITETURA DE DESIGN DRIBBBLE (Limpo, Fluido, Sem Poluição Visual) -->
     <style>
-        /* Força todos os elementos a respeitarem a proporção de tela cheia de computador */
-        html, body {
-            width: 1200px !important;
-            min-width: 1200px !important;
-            margin: 0 auto !important;
-            background-color: #ffffff !important;
-            font-family: sans-serif !important;
-            -webkit-text-size-adjust: none !important; /* Impede o celular de aumentar as fontes sozinho */
+        /* Reset de Margens Globais */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
-        /* Força os blocos estruturais a manterem largura fixa de desktop */
-        .container, .navbar, .hero, .servicos, .diferenciais, .galeria, .depoimentos, .faq, .contato, .footer {
-            width: 1200px !important;
-            min-width: 1200px !important;
-            max-width: 1200px !important;
-            margin-right: auto !important;
-            margin-left: auto !important;
-            box-sizing: border-box !important;
+        body, html {
+            width: 100%;
+            background-color: #fafafa; /* Fundo off-white minimalista igual ao Dribbble */
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: #2c2c2c;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* NAVBAR HORIZONTAL FIXA */
+        /* Containers Fluidos Inteligentes */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* HEADER & NAVBAR MINIMALISTA */
+        .navbar {
+            background-color: #ffffff;
+            border-bottom: 1px solid #eef0f2;
+            padding: 18px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
         .navbar .container {
-            display: flex !important;
-            flex-direction: row !important;
-            justify-content: space-between !important;
-            align-items: center !important;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
+        .logo-text h1 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #161616;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text .tagline {
+            display: none; /* Simplifica o visual limpando textos secundários */
+        }
+
+        /* Menu oculto por padrão no mobile para não poluir a tela */
         .menu {
-            display: flex !important;
-            flex-direction: row !important;
-            gap: 20px !important;
-            list-style: none !important;
-            visibility: visible !important;
-            opacity: 1 !important;
-            position: static !important;
-            background: transparent !important;
-            width: auto !important;
-            height: auto !important;
+            display: flex;
+            gap: 24px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #5d6770;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .menu a:hover, .menu a.active {
+            color: #161616;
+        }
+
+        /* Botão Destaque Contato Estilo Dribbble */
+        .menu a.cta-nav {
+            background-color: #161616;
+            color: #ffffff !important;
+            padding: 9px 16px;
+            border-radius: 8px;
+            font-size: 0.9rem;
         }
 
         .menu-toggle {
-            display: none !important; /* Oculta o botão de três risquinhos do mobile */
+            display: none; /* Ativado apenas via CSS externo se necessário */
         }
 
-        /* HERO / CAPA ANIMADA COMPARTILHADA IGUAL DESKTOP */
+        /* HERO / CAPA PREMIUM (Ajuste dinâmico sem cortes feios) */
         .hero {
-            position: relative !important;
-            height: 100vh !important; 
-            min-height: 650px !important;
-            overflow: hidden !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            background-color: #161616 !important;
+            position: relative;
+            width: 100%;
+            height: 80vh; /* Altura ideal de capa de portfólio */
+            min-height: 500px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #161616;
         }
 
         .hero-video-bg {
-            position: absolute !important;
-            top: 50% !important;
-            left: 50% !important;
-            width: 100% !important;
-            height: 100% !important;
-            min-width: 100% !important;
-            min-height: 100% !important;
-            transform: translate(-50%, -50%) !important;
-            object-fit: cover !important;
-            z-index: 1 !important;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            transform: translate(-50%, -50%);
+            object-fit: cover; /* Preenchimento inteligente cinematográfico */
+            z-index: 1;
         }
 
         .hero-video-overlay {
-            position: absolute !important;
-            top: 0 !important;
-            left: 0 !important;
-            width: 100% !important;
-            height: 100% !important;
-            background: rgba(22, 22, 22, 0.45) !important;
-            z-index: 2 !important;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.45); /* Película escura sutil */
+            z-index: 2;
         }
 
         .hero .container {
-            position: relative !important;
-            z-index: 3 !important;
-            text-align: center !important;
+            position: relative;
+            z-index: 3;
+            text-align: center;
         }
 
         .hero-content h1 {
-            color: #ffffff !important;
-            font-size: 3.5rem !important;
-            font-weight: 700 !important;
-            margin-bottom: 20px !important;
+            color: #ffffff;
+            font-size: clamp(2rem, 5vw, 3.75rem); /* Diminui no celular, aumenta no PC de forma harmônica */
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 16px;
         }
 
         .hero-subtitle {
-            color: #e0e0e0 !important;
-            font-size: 1.25rem !important;
-            margin: 0 auto 40px auto !important;
+            color: #e2e8f0;
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            max-width: 650px;
+            margin: 0 auto 32px auto;
+            line-height: 1.5;
         }
 
         .hero-ctas {
-            display: flex !important;
-            flex-direction: row !important;
-            justify-content: center !important;
-            gap: 16px !important;
+            display: flex;
+            justify-content: center;
+            gap: 16px;
         }
 
-        /* GRADE DE SERVIÇOS EXATAMENTE IGUAL À IMAGEM (TRÊS COLUNAS LADO A LADO) */
+        .hero-ctas .btn {
+            padding: 12px 24px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: transform 0.2s ease;
+        }
+
+        .btn-primary { background-color: #ffffff; color: #161616; }
+        .btn-secondary { background-color: rgba(255,255,255,0.15); color: #ffffff; backdrop-filter: blur(4px); }
+
+        /* SEÇÃO DE PRODUTOS / SERVIÇOS (O coração do estilo Dribbble) */
+        .servicos {
+            padding: 80px 0;
+        }
+
+        .servicos h2, .diferenciais h2, .galeria h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #161616;
+            margin-bottom: 32px;
+            letter-spacing: -0.5px;
+        }
+
+        /* Grade responsiva limpa: se auto-organiza em colunas no PC e vira uma linha fluida no celular */
         .servicos-grid {
-            display: flex !important;
-            flex-direction: row !important; 
-            flex-wrap: nowrap !important;
-            gap: 24px !important;
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
+            gap: 32px !important;
             width: 100% !important;
         }
 
+        /* Cards minimalistas com bordas arredondadas e sombras suaves do Dribbble */
         .servico-card {
-            flex: 1 !important;
             background: #ffffff !important;
-            border-radius: 8px !important;
-            padding: 30px !important;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05) !important;
-            border-top: 3px solid #1a365d !important;
-            display: block !important;
+            border: 1px solid #eef0f2 !important;
+            border-top: none !important; /* Removemos aquela barra escura antiga para limpar o fluxo */
+            border-radius: 12px !important;
+            padding: 28px !important;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02), 0 8px 24px rgba(0,0,0,0.03) !important;
+            transition: box-shadow 0.3s ease, transform 0.3s ease !important;
+            text-align: left !important;
         }
 
-        /* GRADE DE DIFERENCIAIS EXATAMENTE IGUAL AO DESKTOP (QUATRO COLUNAS LADO A LADO) */
-        .diferenciais-grid {
+        .servico-card:hover {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08) !important;
+            transform: translateY(-4px) !important;
+        }
+
+        .servico-card h3 {
+            font-size: 1.25rem !important;
+            color: #161616 !important;
+            font-weight: 700 !important;
+            margin-bottom: 12px !important;
+        }
+
+        .servico-card p {
+            color: #64748b !important;
+            font-size: 0.95rem !important;
+            line-height: 1.6 !important;
+            margin-bottom: 20px !important;
+        }
+
+        .servico-features {
+            list-style: none !important;
+            border-top: 1px solid #f1f5f9 !important;
+            padding-top: 16px !important;
+        }
+
+        .servico-features li {
+            font-size: 0.9rem !important;
+            color: #475569 !important;
+            margin-bottom: 10px !important;
             display: flex !important;
-            flex-direction: row !important;
-            flex-wrap: nowrap !important;
-            gap: 20px !important;
-            width: 100% !important;
+            align-items: center !important;
+        }
+
+        /* GRADE DE DIFERENCIAIS FLUIDA */
+        .diferenciais { padding: 60px 0; background-color: #ffffff; border-top: 1px solid #eef0f2; }
+        
+        .diferenciais-grid {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)) !important;
+            gap: 24px !important;
         }
 
         .diferencial-item {
-            flex: 1 !important;
             background: #f8fafc !important;
             padding: 24px !important;
-            border-radius: 6px !important;
+            border-radius: 12px !important;
+            border: 1px solid #f1f5f9 !important;
+        }
+
+        .diferencial-item h3 { font-size: 1.1rem !important; margin-bottom: 8px !important; color: #161616 !important; }
+        .diferencial-item p { font-size: 0.9rem !important; color: #64748b !important; line-height: 1.5 !important; }
+
+        /* GALERIA DE FOTOS CONFIGURAÇÃO DRIBBBLE */
+        .galeria-grid {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+            gap: 24px !important;
+        }
+
+        .galeria-item {
+            overflow: hidden !important;
+            border-radius: 12px !important;
+            border: 1px solid #eef0f2 !important;
             display: block !important;
         }
 
-        /* ANULAÇÃO COMPLETA DE REGRAS RESPONSIVAS MÓVEIS */
-        @media (max-width: 1200px), (max-width: 992px), (max-width: 768px), (max-width: 480px) {
-            html, body, .container, .navbar, .hero, .servicos, .diferenciais, .galeria, .depoimentos, .faq, .contato, .footer {
-                width: 1200px !important;
-                min-width: 1200px !important;
+        .galeria-item img {
+            width: 100% !important;
+            height: 250px !important;
+            object-fit: cover !important;
+            display: block !important;
+            transition: transform 0.3s ease !important;
+        }
+
+        .galeria-item img:hover { transform: scale(1.04) !important; }
+
+        /* REGRAS DE ADAPTAÇÃO EXCLUSIVAS PARA CELULAR (ORGANIZAÇÃO IMPECÁVEL NO MOBILE) */
+        @media (max-width: 768px) {
+            .container { padding: 0 20px; }
+            .hero { height: 70vh; }
+            
+            /* Ajusta os botões da capa para empilharem harmonicamente sem espremer o texto */
+            .hero-ctas {
+                flex-direction: column !important;
+                max-width: 280px;
+                margin: 0 auto;
             }
-            .servicos-grid, .diferenciais-grid, .hero-ctas {
-                flex-direction: row !important;
-                flex-wrap: nowrap !important;
+            .hero-ctas .btn { width: 100%; text-align: center; }
+
+            /* Oculta links do menu para visual limpo (pode ser controlado via script.js futuramente) */
+            .menu { display: none; } 
+
+            /* Ajusta o espaçamento das grades no celular para leitura de cima para baixo */
+            .servicos-grid, .diferenciais-grid, .galeria-grid {
+                grid-template-columns: 1fr !important; /* Uma coluna única perfeita */
+                gap: 20px !important;
             }
+            
+            .servico-card { padding: 24px !important; }
         }
     </style>
     
@@ -184,62 +318,57 @@
 </head>
 <body>
 
-    <!-- Botão WhatsApp Flutuante -->
+    <!-- Botão WhatsApp Flutuante Minimalista -->
     <a href="https://wa.me/5547992772453?text=Olá%20Quintilhanos!%20Gostaria%20de%20solicitar%20um%20orçamento%20para%20drywall%20e%20pintura%20premium." 
        class="whatsapp-btn" 
        aria-label="Abrir WhatsApp"
-       title="Entre em contato via WhatsApp">
-        <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="currentColor">
+       style="box-shadow: 0 8px 24px rgba(37, 211, 102, 0.3);">
+        <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="currentColor" style="width: 32px; height: 32px;">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5 -.67 -.51 -.173 -.008 -.371 -.01 -.57 -.01 -.198 0 -.52 .074 -.792 .372 -.272 .297 -1.04 1.016 -1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.455 5.703 1.456h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
         </svg>
     </a>
 
-    <!-- Navegação Principal (Travada em modo Desktop) -->
-    <nav class="navbar" role="navigation" aria-label="Navegação principal">
+    <!-- Navegação Estilo Dribbble -->
+    <nav class="navbar" role="navigation">
         <div class="container">
             <div class="logo-section">
                 <div class="logo-text">
                     <h1>Quintilhanos</h1>
-                    <p class="tagline">Construções e Acabamentos.</p>
                 </div>
             </div>
-            <ul class="menu" id="navMenu" role="menubar">
-                <li><a href="#inicio" class="active" role="menuitem">Início</a></li>
-                <li><a href="#servicos" role="menuitem">Serviços</a></li>
-                <li><a href="#diferenciais" role="menuitem">Diferenciais</a></li>
-                <li><a href="#galeria" role="menuitem">Galeria</a></li>
-                <li><a href="#depoimentos" role="menuitem">Depoimentos</a></li>
-                <li><a href="#faq" role="menuitem">FAQ</a></li>
-                <li><a href="#contato" role="menuitem" class="cta-nav">Contato</a></li>
+            <ul class="menu" role="menubar">
+                <li><a href="#inicio" class="active">Início</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#diferenciais">Diferenciais</a></li>
+                <li><a href="#galeria">Galeria</a></li>
+                <li><a href="#contato" class="cta-nav">Contato</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Hero Section (Capa Fundo Vídeo Fixo) -->
-    <section class="hero" id="inicio" aria-labelledby="hero-title">
+    <!-- Hero Section (Capa Fundo Vídeo) -->
+    <section class="hero" id="inicio">
         <video class="hero-video-bg" autoplay loop muted playsinline webkit-playsinline preload="auto">
             <source src="https://www.dropbox.com/scl/fi/e0s79hp9hrodsvtkzt8vf/Quero_que_fa-a_um_pequeno_v-de-1.mp4?rlkey=72rcyg2g5f0nw9wkr8gbxu4rr&st=o12bplyz&raw=1" type="video/mp4">
         </video>
         <div class="hero-video-overlay"></div>
 
-        <div class="container hero-container">
+        <div class="container">
             <div class="hero-content">
-                <h1 id="hero-title">Construções e Acabamentos</h1>
-                <p class="hero-subtitle">
-                    Transformamos ambientes com soluções sofisticadas, durabilidade garantida e atendimento especializado.
-                </p>
+                <h1>Construções e Acabamentos</h1>
+                <p class="hero-subtitle">Transformamos ambientes com soluções sofisticadas, durabilidade garantida e atendimento especializado.</p>
                 <div class="hero-ctas">
-                    <a href="#servicos" class="btn btn-primary btn-lg">Conheça Nossos Serviços</a>
-                    <a href="https://wa.me/5547992772453" class="btn btn-secondary btn-lg">Solicitar Orçamento</a>
+                    <a href="#servicos" class="btn btn-primary">Ver Serviços</a>
+                    <a href="https://wa.me/5547992772453" class="btn btn-secondary">Orçamento</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Serviços Principais (Três Colunas Horizontais Fixas) -->
-    <section class="servicos" id="servicos" aria-labelledby="servicos-title">
+    <!-- Serviços Principais (Cards Estilo Dribbble) -->
+    <section class="servicos" id="servicos">
         <div class="container">
-            <h2 id="servicos-title">Serviços Premium</h2>
+            <h2>Serviços Premium</h2>
             <div class="servicos-grid">
                 <article class="servico-card">
                     <h3>Drywall Premium</h3>
@@ -248,9 +377,6 @@
                         <li>✓ Isolamento acústico superior</li>
                         <li>✓ Resistência ao fogo (RF-60)</li>
                         <li>✓ Acabamento perfeito</li>
-                        <li>✓ Construções</li>
-                        <li>✓ Hidraulica</li>
-                        <li>✓ Eletrica</li>
                     </ul>
                 </article>
 
@@ -258,92 +384,73 @@
                     <h3>Pintura Premium</h3>
                     <p>Acabamentos sofisticados com tintas de alta durabilidade.</p>
                     <ul class="servico-features">
-                        <li>✓ Tintas premium com durabilidade estendida</li>
-                        <li>✓ Cores exclusivas e personalizadas</li>
-                        <li>✓ Preparação profissional de superfícies</li>
+                        <li>✓ Tintas de alta cobertura</li>
+                        <li>✓ Cores exclusivas</li>
+                        <li>✓ Preparação profissional</li>
                     </ul>
                 </article>
 
                 <article class="servico-card">
                     <h3>Divisórias Premium</h3>
-                    <p>Soluções inteligentes para otimizar e segmentar espaços.</p>
+                    <p>Soluções inteligentes para otimizar e segmentar espaços de forma moderna.</p>
                     <ul class="servico-features">
                         <li>✓ Divisórias deslizantes</li>
-                        <li>✓ Vidro temperado e aço inox</li>
-                        <li>✓ Isolamento acústico integrado</li>
+                        <li>✓ Vidro temperado e aço</li>
+                        <li>✓ Conforto térmico integrado</li>
                     </ul>
                 </article>
             </div>
         </div>
     </section>
 
-    <!-- Diferenciais (Quatro Colunas Horizontais Fixas) -->
-    <section class="diferenciais" id="diferenciais" aria-labelledby="diferenciais-title">
+    <!-- Diferenciais -->
+    <section class="diferenciais" id="diferenciais">
         <div class="container">
-            <h2 id="diferenciais-title">Por Que Escolher Quintilhanos</h2>
+            <h2>Por Que Escolher a Quintilhanos</h2>
             <div class="diferenciais-grid">
                 <div class="diferencial-item">
                     <h3>Qualidade Premium</h3>
-                    <p>Materiais de primeira linha com certificação de durabilidade.</p>
+                    <p>Materiais de primeira linha com certificação de durabilidade estrutural.</p>
                 </div>
                 <div class="diferencial-item">
                     <h3>Design Sofisticado</h3>
-                    <p>Projetos personalizados que refletem elegância.</p>
+                    <p>Projetos personalizados pensados para refletir sofisticação.</p>
                 </div>
                 <div class="diferencial-item">
                     <h3>Equipe Especializada</h3>
-                    <p>Profissionais com 20+ anos de experiência.</p>
+                    <p>Profissionais experientes focados no acabamento perfeito.</p>
                 </div>
                 <div class="diferencial-item">
-                    <h3>Cumprimento de Prazos</h3>
-                    <p>Gestão eficiente com transparência total.</p>
+                    <h3>Prazos Rigorosos</h3>
+                    <p>Gestão de obras inteligente com cumprimento e transparência.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Galeria Horizontal -->
-    <section class="galeria" id="galeria" aria-labelledby="galeria-title">
+    <!-- Galeria Minimalista de Portfólio -->
+    <section class="galeria" id="galeria" style="padding: 60px 0 100px 0;">
         <div class="container">
-            <h2 id="galeria-title">Galeria de Obras</h2>
-            <div class="galeria-grid" style="display: flex !important; flex-direction: row !important; gap: 15px !important;">
-                <a href="imagens/projeto-1.jpg" class="galeria-item">
-                    <img src="imagens/projeto-1-thumb.jpg" alt="Projeto" width="360" height="360">
-                </a>
-                <a href="imagens/projeto-2.jpg" class="galeria-item">
-                    <img src="imagens/projeto-2-thumb.jpg" alt="Projeto" width="360" height="360">
-                </a>
-                <a href="imagens/projeto-3.jpg" class="galeria-item">
-                    <img src="imagens/projeto-3-thumb.jpg" alt="Projeto" width="360" height="360">
-                </a>
+            <h2>Galeria de Obras</h2>
+            <div class="galeria-grid">
+                <div class="galeria-item">
+                    <img src="imagens/projeto-1-thumb.jpg" alt="Projeto Obra">
+                </div>
+                <div class="galeria-item">
+                    <img src="imagens/projeto-2-thumb.jpg" alt="Projeto Obra">
+                </div>
+                <div class="galeria-item">
+                    <img src="imagens/projeto-3-thumb.jpg" alt="Projeto Obra">
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Contato Horizontal -->
-    <section class="contato" id="contato" aria-labelledby="contato-title">
-        <div class="container">
-            <div class="contato-grid" style="display: flex !important; flex-direction: row !important; gap: 40px !important; align-items: top !important;">
-                <article class="contato-info" style="flex: 1 !important;">
-                    <h2>Entre em Contato</h2>
-                    <div class="contato-items" style="margin-top: 20px;">
-                        <p><strong>📞 Telefone:</strong> <a href="tel:+5547992772453">(47) 99277-2453</a></p>
-                        <p style="margin-top: 10px;"><strong>📧 Email:</strong> <a href="mailto:quintilhanoscontrucoeseacabame@gmail.com">contato@quintilhanos.com.br</a></p>
-                    </div>
-                </article>
-
-                <form class="contato-form" id="formContato" style="flex: 1 !important; background: #f8fafc; padding: 20px; border-radius: 8px;">
-                    <h3>Solicitar Orçamento</h3>
-                    <button type="submit" class="btn btn-primary btn-lg" style="margin-top: 20px; width: 100%;">Solicitar Orçamento</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer Fixo -->
-    <footer class="footer" role="contentinfo" style="padding: 20px 0; background: #1a1a1a; color: #ffffff;">
-        <div class="container" style="display: flex !important; flex-direction: row !important; justify-content: space-between !important;">
+    <!-- Footer Limpo -->
+    <footer style="padding: 32px 0; background: #ffffff; border-top: 1px solid #eef0f2; color: #64748b; font-size: 0.9rem;">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
             <p>&copy; 2026 Quintilhanos. Todos os direitos reservados.</p>
+            <p>Contato: (47) 99277-2453</p>
         </div>
     </footer>
 
