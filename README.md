@@ -1,7 +1,7 @@
 # Quintilhanos - Drywall e Pintura Premium
 
 ## Sobre
-Site institucional premium para empresa especializada em drywall, pintura e acabamentos sofisticados em São Paulo.
+Site institucional premium para empresa especializada em drywall, pintura e acabamentos sofisticados em Blumenau e Região.
 
 ## Tecnologias
 - **HTML5** Semântico
@@ -72,7 +72,7 @@ Site institucional premium para empresa especializada em drywall, pintura e acab
 
 ## Integração com WhatsApp
 Botão flutuante para contato direto:
-- Link: `https://wa.me/5511999999999`
+- Link: `https://wa.me/5547992772453`
 - Mensagem pré-formatada
 - Animação de bounce contínua
 
@@ -121,7 +121,7 @@ Integrado com Google Sheets (veja SISTEMA_LEADS_GOOGLE_SHEETS.md):
 
 ### Atualizar Dados de Contato
 Editar em `index.html`:
-- `(11) 99999-9999` - Telefone
+- `(47) 99277-2453 - Telefone
 - `contato@quintilhanos.com.br` - Email
 - Schema.org LocalBusiness
 
@@ -147,8 +147,7 @@ Adicionar em seção "Galeria":
 
 ## Suporte
 📧 contato@quintilhanos.com.br
-📞 (11) 99999-9999
-💬 WhatsApp: [Link direto](https://wa.me/5511999999999)
+📞 (47) 99277-2453💬 WhatsApp: [Link direto](https://wa.me/5547992772453)
 
 ---
 
