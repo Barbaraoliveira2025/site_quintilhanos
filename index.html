@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <!-- Meta Tags Essenciais para SEO e Performance -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="description" content="Quintilhanos - Drywall e Pintura Premium em Santa Catarina. Especialistas em reformas, acabamentos e divisórias com design sofisticado e atendimento especializado.">
+    <meta name="description" content="Quintilhanos - Drywall e Pintura Premium em Santa Catarina. Especialistas em reformas, acabamentos e divisórias com design sofisticado e atendimento feminino.">
     <meta name="keywords" content="drywall premium, pintura premium, forros, divisórias, reformas, acabamentos, Santa Catarina">
     <meta name="author" content="Quintilhanos">
-    <meta name="theme-color" content="#161616">
+    <meta name="theme-color" content="#1a1a1a">
     
-    <!-- Open Graph para Redes Sociais -->
     <meta property="og:type" content="business.business">
     <meta property="og:title" content="Quintilhanos - Drywall e Pintura Premium">
     <meta property="og:description" content="Transformamos seus espaços com soluções premium em drywall, pintura e acabamentos sofisticados.">
@@ -17,353 +15,134 @@
     <meta property="og:image" content="https://quintilhanos.com.br/imagens/logo-og.png">
     <meta property="og:locale" content="pt_BR">
     
-    <!-- Preload de Recursos Críticos -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Quintilhanos - Drywall e Pintura Premium">
+    <meta name="twitter:description" content="Soluções premium em drywall, pintura e acabamentos em Santa Catarina.">
+    
     <link rel="preload" href="style.css" as="style">
     <link rel="preload" href="script.js" as="script">
     
-    <!-- Estilos Gerais do Site -->
     <link rel="stylesheet" href="style.css" media="screen">
     
-    <!-- ARQUITETURA DE DESIGN INSPIRADA NO DRIBBBLE (Com preservação total do conteúdo original) -->
     <style>
-        /* Reset de Margens Globais e Fluxo Limpo */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body, html {
-            width: 100%;
-            background-color: #fafafa; /* Fundo off-white minimalista do Dribbble */
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            color: #2c2c2c;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        /* Linha de Grade Fluida */
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        /* HEADER & NAVBAR MINIMALISTA */
-        .navbar {
-            background-color: #ffffff;
-            border-bottom: 1px solid #eef0f2;
-            padding: 18px 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .navbar .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo-text h1 {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: #161616;
-            letter-spacing: -0.5px;
-        }
-
-        .logo-text .tagline {
-            font-size: 0.85rem;
-            color: #64748b;
-            font-weight: 400;
-        }
-
-        .menu {
-            display: flex;
-            gap: 24px;
-            list-style: none;
-            align-items: center;
-        }
-
-        .menu a {
-            text-decoration: none;
-            color: #5d6770;
-            font-size: 0.95rem;
-            font-weight: 500;
-            transition: color 0.2s ease;
-        }
-
-        .menu a:hover, .menu a.active {
-            color: #161616;
-        }
-
-        .menu a.cta-nav {
-            background-color: #161616;
-            color: #ffffff !important;
-            padding: 9px 16px;
-            border-radius: 8px;
-            font-size: 0.9rem;
-        }
-
-        /* HERO / CAPA PREMIUM DE ALTA RESOLUÇÃO */
+        /* Ajuste na Hero Section para se comportar como a capa container */
         .hero {
             position: relative;
             width: 100%;
-            height: 85vh;
-            min-height: 550px;
+            height: 100vh; /* Ocupa 100% da altura da tela inicial */
+            min-height: 600px;
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: #161616;
+            background-color: #1a1a1a;
         }
 
+        /* O vídeo esticado de forma inteligente para preencher o fundo igual a uma capa */
         .hero-video-bg {
             position: absolute;
             top: 50%;
             left: 50%;
-            width: 100%;
-            height: 100%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
             transform: translate(-50%, -50%);
-            object-fit: cover;
-            z-index: 1;
+            object-fit: cover; /* Faz o vídeo cobrir toda a área sem distorcer */
+            z-index: 1; /* Camada mais baixa */
+            pointer-events: none; /* Ignora cliques para não atrapalhar os botões */
         }
 
+        /* Camada escura por cima do vídeo para dar contraste ao texto (Overlay) */
         .hero-video-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.45);
-            z-index: 2;
+            background: linear-gradient(180deg, rgba(26,26,26,0.5) 0%, rgba(26,26,26,0.8) 100%);
+            z-index: 2; /* Fica acima do vídeo e abaixo do texto */
         }
 
+        /* O conteúdo do site fica na camada de cima, perfeitamente legível */
         .hero .container {
             position: relative;
-            z-index: 3;
+            z-index: 3; /* Traz o texto e botões para frente */
             text-align: center;
+            padding: 0 20px;
         }
 
         .hero-content h1 {
             color: #ffffff;
-            font-size: clamp(2.2rem, 5vw, 3.8rem);
-            font-weight: 800;
-            letter-spacing: -1px;
-            margin-bottom: 16px;
-            line-height: 1.15;
+            font-size: 2.8rem;
+            font-weight: 700;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.6);
+            margin-bottom: 20px;
         }
 
         .hero-subtitle {
-            color: #e2e8f0;
-            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: #e0e0e0;
+            font-size: 1.2rem;
             max-width: 700px;
-            margin: 0 auto 32px auto;
-            line-height: 1.5;
+            margin: 0 auto 40px auto;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.6);
         }
 
-        .hero-ctas {
-            display: flex;
-            justify-content: center;
-            gap: 16px;
-        }
-
-        .hero-ctas .btn {
-            padding: 14px 28px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: all 0.2s ease;
-        }
-
-        .btn-primary { background-color: #ffffff; color: #161616; }
-        .btn-secondary { background-color: rgba(255,255,255,0.15); color: #ffffff; backdrop-filter: blur(4px); }
-
-        /* SEÇÕES DE CONTEÚDO (Títulos Elegantes e Organizados) */
-        .servicos, .diferenciais, .galeria, .depoimentos, .faq, .contato {
-            padding: 80px 0;
-            border-bottom: 1px solid #eef0f2;
-        }
-
-        h2 {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #161616;
-            margin-bottom: 12px;
-            letter-spacing: -0.5px;
-            text-align: center;
-        }
-
-        .section-subtitle {
-            font-size: 1.05rem;
-            color: #64748b;
-            text-align: center;
-            margin-bottom: 48px;
-        }
-
-        /* GRADES DE CARDS ADAPTATIVOS */
-        .servicos-grid, .galeria-grid {
-            display: grid !important;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)) !important;
-            gap: 32px !important;
-            width: 100% !important;
-        }
-
-        .diferenciais-grid, .depoimentos-grid {
-            display: grid !important;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
-            gap: 24px !important;
-            width: 100% !important;
-        }
-
-        /* CARDS ESTILO DRIBBBLE */
-        .servico-card, .diferencial-item, .depoimento-card, .faq-item {
-            background: #ffffff !important;
-            border: 1px solid #eef0f2 !important;
-            border-radius: 12px !important;
-            padding: 32px !important;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.01), 0 6px 18px rgba(0,0,0,0.02) !important;
-            transition: box-shadow 0.3s ease, transform 0.3s ease !important;
-            text-align: left !important;
-        }
-
-        .servico-card:hover, .diferencial-item:hover {
-            box-shadow: 0 15px 35px rgba(0,0,0,0.06) !important;
-            transform: translateY(-3px) !important;
-        }
-
-        .servico-card h3, .diferencial-item h3 {
-            font-size: 1.3rem !important;
-            color: #161616 !important;
-            font-weight: 700 !important;
-            margin-bottom: 12px !important;
-            letter-spacing: -0.3px;
-        }
-
-        .servico-card p, .diferencial-item p {
-            color: #64748b !important;
-            font-size: 0.95rem !important;
-            line-height: 1.6 !important;
-            margin-bottom: 20px !important;
-        }
-
-        .servico-features {
-            list-style: none !important;
-            border-top: 1px solid #f1f5f9 !important;
-            padding-top: 16px !important;
-        }
-
-        .servico-features li {
-            font-size: 0.9rem !important;
-            color: #475569 !important;
-            margin-bottom: 10px !important;
-            display: flex !important;
-            align-items: center !important;
-            gap: 8px;
-        }
-
-        /* GALERIA DE FOTOS */
-        .galeria-item {
-            overflow: hidden !important;
-            border-radius: 12px !important;
-            border: 1px solid #eef0f2 !important;
-            display: block !important;
-        }
-
-        .galeria-item img {
-            width: 100% !important;
-            height: 280px !important;
-            object-fit: cover !important;
-            display: block !important;
-            transition: transform 0.3s ease !important;
-        }
-
-        .galeria-item img:hover { transform: scale(1.03) !important; }
-
-        /* DEPOIMENTOS & FAQ */
-        .depoimento-texto { font-style: italic; color: #475569; line-height: 1.6; margin-bottom: 16px; }
-        .depoimento-autor { font-size: 0.9rem; color: #161616; }
-
-        .faq-items { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; }
-        .faq-item summary { font-size: 1.05rem; font-weight: 600; color: #161616; cursor: pointer; padding: 4px 0; }
-        .faq-item p { margin-top: 12px; color: #64748b; line-height: 1.6; font-size: 0.95rem; }
-
-        /* CONTATO PREMIUM & FORMULÁRIO */
-        .contato-grid {
-            display: grid !important;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)) !important;
-            gap: 48px !important;
-            align-items: start !important;
-        }
-
-        .contato-info p { margin-bottom: 16px; font-size: 1rem; color: #475569; }
-        .contato-items p { margin-bottom: 12px; font-size: 0.95rem; }
-        .contato-items a { color: #161616; font-weight: 600; text-decoration: none; }
-
-        .contato-form {
-            background: #ffffff;
-            border: 1px solid #eef0f2;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
-        }
-
-        .contato-form h3 { margin-bottom: 24px; font-size: 1.3rem; font-weight: 700; }
-
-        .form-group { margin-bottom: 20px; text-align: left; }
-        .form-group label { display: block; margin-bottom: 8px; font-size: 0.9rem; font-weight: 600; color: #334155; }
-        .form-group input, .form-group select, .form-group textarea {
-            width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.95rem; background: #f8fafc; transition: border-color 0.2s;
-        }
-        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: #161616; outline: none; }
-        .form-disclaimer { font-size: 0.85rem; color: #94a3b8; margin-top: 12px; text-align: center; }
-
-        .btn-submit {
-            width: 100%; background: #161616; color: #ffffff; padding: 14px; border: none; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: background 0.2s;
-        }
-        .btn-submit:hover { background: #333333; }
-
-        /* FOOTER */
-        .footer { padding: 40px 0; background: #ffffff; border-top: 1px solid #eef0f2; color: #64748b; font-size: 0.9rem; }
-        .footer-content { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 32px; margin-bottom: 32px; }
-        .footer-section h4 { color: #161616; margin-bottom: 16px; font-size: 1rem; font-weight: 700; }
-        .footer-section ul { list-style: none; }
-        .footer-section ul li { margin-bottom: 8px; }
-        .footer-section a { color: #64748b; text-decoration: none; }
-        .footer-section a:hover { color: #161616; }
-        .footer-bottom { text-align: center; border-top: 1px solid #f1f5f9; padding-top: 24px; }
-
-        /* BLINDAGEM DE RESPONSIVIDADE WEB MOBILE (Idêntico ao fluxo fluido do Dribbble) */
         @media (max-width: 768px) {
-            .container { padding: 0 20px; }
-            .hero { height: 75vh; }
-            
-            .hero-ctas {
-                flex-direction: column !important;
-                max-width: 290px;
-                margin: 0 auto;
+            .hero-content h1 {
+                font-size: 2rem;
             }
-            .hero-ctas .btn { width: 100%; text-align: center; }
-            .menu { display: none; } /* Oculta o menu estendido para manter a elegância do topo */
-
-            /* Força os elementos a fluírem de cima para baixo em coluna única perfeitamente alinhada */
-            .servicos-grid, .diferenciais-grid, .galeria-grid, .depoimentos-grid, .contato-grid {
-                grid-template-columns: 1fr !important;
-                gap: 24px !important;
+            .hero-subtitle {
+                font-size: 1rem;
             }
-            
-            .contato-form { padding: 24px; }
-            .servico-card, .diferencial-item, .depoimento-card { padding: 24px !important; }
         }
     </style>
     
     <title>Quintilhanos - Drywall e Pintura Premium em Santa Catarina</title>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Quintilhanos",
+      "image": "https://quintilhanos.com.br/imagens/logo.png",
+      "description": "Especialistas em Construções, Acabamentos sofisticados, Pintura premium, Hidraulica e Eletrica.",
+      "url": "https://quintilhanos.com.br",
+      "telephone": "+5547992772453",
+      "email": "quintilhanoscontrucoeseacabame@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Rua Bruno Mordhorst, 279",
+        "addressLocality": "Santa Catarina",
+        "addressRegion": "SC",
+        "postalCode": "89062-244",
+        "addressCountry": "BR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "-26.8257306",
+        "longitude": "-49.0799483"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "08:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "09:00",
+          "closes": "13:00"
+        }
+      ],
+      "priceRange": "$$$$"
+    }
+    </script>
 </head>
 <body>
 
-    <!-- Botão WhatsApp Flutuante -->
     <a href="https://wa.me/5547992772453?text=Olá%20Quintilhanos!%20Gostaria%20de%20solicitar%20um%20orçamento%20para%20drywall%20e%20pintura%20premium." 
        class="whatsapp-btn" 
        aria-label="Abrir WhatsApp"
@@ -373,7 +152,6 @@
         </svg>
     </a>
 
-    <!-- Navegação Principal -->
     <nav class="navbar" role="navigation" aria-label="Navegação principal">
         <div class="container">
             <div class="logo-section">
@@ -382,6 +160,11 @@
                     <p class="tagline">Construções e Acabamentos.</p>
                 </div>
             </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <ul class="menu" id="navMenu" role="menubar">
                 <li><a href="#inicio" class="active" role="menuitem">Início</a></li>
                 <li><a href="#servicos" role="menuitem">Serviços</a></li>
@@ -394,51 +177,52 @@
         </div>
     </nav>
 
-    <!-- Hero Section (Capa Fundo Vídeo) -->
     <section class="hero" id="inicio" aria-labelledby="hero-title">
-        <video class="hero-video-bg" autoplay loop muted playsinline webkit-playsinline preload="auto">
+        
+        <video class="hero-video-bg" autoplay muted loop playsinline preload="auto">
             <source src="https://www.dropbox.com/scl/fi/e0s79hp9hrodsvtkzt8vf/Quero_que_fa-a_um_pequeno_v-de-1.mp4?rlkey=72rcyg2g5f0nw9wkr8gbxu4rr&st=o12bplyz&raw=1" type="video/mp4">
         </video>
+        
         <div class="hero-video-overlay"></div>
 
-        <div class="container">
+        <div class="container hero-container">
             <div class="hero-content">
                 <h1 id="hero-title">Construções e Acabamentos</h1>
-                <p class="hero-subtitle">Transformamos ambientes com soluções sofisticadas, durabilidade garantida e atendimento especializado.</p>
+                <p class="hero-subtitle">
+                    Transformamos ambientes com soluções sofisticadas, durabilidade garantida e atendimento especializado.
+                </p>
                 <div class="hero-ctas">
-                    <a href="#servicos" class="btn btn-primary">Conheça Nossos Serviços</a>
-                    <a href="https://wa.me/5547992772453" class="btn btn-secondary">Solicitar Orçamento</a>
+                    <a href="#servicos" class="btn btn-primary btn-lg">Conheça Nossos Serviços</a>
+                    <a href="https://wa.me/5547992772453" class="btn btn-secondary btn-lg">Solicitar Orçamento</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Serviços Principais (Todos Preservados com Estilo Dribbble) -->
     <section class="servicos" id="servicos" aria-labelledby="servicos-title">
         <div class="container">
             <h2 id="servicos-title">Serviços Premium</h2>
-            <p class="section-subtitle">Soluções completas com acabamento de alto padrão</p>
             <div class="servicos-grid">
-                <article class="servico-card">
+                <article class="servico-card servico-principal">
                     <h3>Drywall Premium</h3>
                     <p>Sistemas de gesso acartonado de alta performance com design sofisticado.</p>
                     <ul class="servico-features">
-                        <li>✓ Isolamento acústico superior</li>
-                        <li>✓ Resistência ao fogo (RF-60)</li>
-                        <li>✓ Acabamento perfeito</li>
-                        <li>✓ Construções</li>
-                        <li>✓ Hidraulica</li>
-                        <li>✓ Eletrica</li>
+                        <li>Isolamento acústico superior</li>
+                        <li>Resistência ao fogo (RF-60)</li>
+                        <li>Acabamento perfeito</li>
+                        <li>Construções</li>
+                        <li>Hidraulica</li>
+                        <li>Eletrica</li>
                     </ul>
                 </article>
 
-                <article class="servico-card">
+                <article class="servico-card servico-principal">
                     <h3>Pintura Premium</h3>
                     <p>Acabamentos sofisticados com tintas de alta durabilidade.</p>
                     <ul class="servico-features">
-                        <li>✓ Tintas premium com durabilidade estendida</li>
-                        <li>✓ Cores exclusivas e personalizadas</li>
-                        <li>✓ Preparação profissional de superfícies</li>
+                        <li>Tintas premium com durabilidade estendida</li>
+                        <li>Cores exclusivas e personalizadas</li>
+                        <li>Preparação profissional de superfícies</li>
                     </ul>
                 </article>
 
@@ -446,9 +230,9 @@
                     <h3>Divisórias Premium</h3>
                     <p>Soluções inteligentes para otimizar e segmentar espaços.</p>
                     <ul class="servico-features">
-                        <li>✓ Divisórias deslizantes</li>
-                        <li>✓ Vidro temperado e aço inox</li>
-                        <li>✓ Isolamento acústico integrado</li>
+                        <li>Divisórias deslizantes</li>
+                        <li>Vidro temperado e aço inox</li>
+                        <li>Isolamento acústico integrado</li>
                     </ul>
                 </article>
 
@@ -456,9 +240,9 @@
                     <h3>Forros Sofisticados</h3>
                     <p>Sistemas de forro inovadores que agregam estética.</p>
                     <ul class="servico-features">
-                        <li>✓ Forros acústicos premium</li>
-                        <li>✓ Iluminação integrada</li>
-                        <li>✓ Acabamentos personalizados</li>
+                        <li>Forros acústicos premium</li>
+                        <li>Iluminação integrada</li>
+                        <li>Acabamentos personalizados</li>
                     </ul>
                 </article>
 
@@ -466,9 +250,9 @@
                     <h3>Reformas & Acabamentos</h3>
                     <p>Solução completa para transformação de espaços.</p>
                     <ul class="servico-features">
-                        <li>✓ Projetos customizados</li>
-                        <li>✓ Gestão eficiente de prazos</li>
-                        <li>✓ Acabamento premium</li>
+                        <li>Projetos customizados</li>
+                        <li>Gestão eficiente de prazos</li>
+                        <li>Acabamento premium</li>
                     </ul>
                 </article>
 
@@ -476,20 +260,18 @@
                     <h3>Atendimento Especializado</h3>
                     <p>Equipe profissional para acolher suas necessidades.</p>
                     <ul class="servico-features">
-                        <li>✓ Profissionais especializadas</li>
-                        <li>✓ Comunicação clara</li>
-                        <li>✓ Suporte personalizado</li>
+                        <li>Profissionais especializadas</li>
+                        <li>Comunicação clara</li>
+                        <li>Suporte personalizado</li>
                     </ul>
                 </article>
             </div>
         </div>
     </section>
 
-    <!-- Diferenciais (Todos Preservados) -->
     <section class="diferenciais" id="diferenciais" aria-labelledby="diferenciais-title">
         <div class="container">
             <h2 id="diferenciais-title">Por Que Escolher Quintilhanos</h2>
-            <p class="section-subtitle">Excelência técnica e compromisso em cada detalhe</p>
             <div class="diferenciais-grid">
                 <div class="diferencial-item">
                     <h3>Qualidade Premium</h3>
@@ -519,39 +301,36 @@
         </div>
     </section>
 
-    <!-- Galeria Completa (Todas as 6 imagens originais) -->
     <section class="galeria" id="galeria" aria-labelledby="galeria-title">
         <div class="container">
             <h2 id="galeria-title">Galeria de Obras</h2>
-            <p class="section-subtitle">Portfólio de projetos realizados pela nossa equipe</p>
+            <p class="section-subtitle">Portfólio de projetos realizados</p>
             <div class="galeria-grid">
                 <a href="imagens/projeto-1.jpg" class="galeria-item" aria-label="Projeto de drywall">
-                    <img src="imagens/projeto-1-thumb.jpg" alt="Projeto de drywall em sala" loading="lazy">
+                    <img src="imagens/projeto-1-thumb.jpg" alt="Projeto de drywall em sala" loading="lazy" width="300" height="300">
                 </a>
                 <a href="imagens/projeto-2.jpg" class="galeria-item" aria-label="Pintura premium">
-                    <img src="imagens/projeto-2-thumb.jpg" alt="Pintura premium em ambiente comercial" loading="lazy">
+                    <img src="imagens/projeto-2-thumb.jpg" alt="Pintura premium em ambiente comercial" loading="lazy" width="300" height="300">
                 </a>
                 <a href="imagens/projeto-3.jpg" class="galeria-item" aria-label="Forro acústico">
-                    <img src="imagens/projeto-3-thumb.jpg" alt="Forro acústico sofisticado" loading="lazy">
+                    <img src="imagens/projeto-3-thumb.jpg" alt="Forro acústico sofisticado" loading="lazy" width="300" height="300">
                 </a>
                 <a href="imagens/projeto-4.jpg" class="galeria-item" aria-label="Divisória vidro">
-                    <img src="imagens/projeto-4-thumb.jpg" alt="Divisória vidro em corporativo" loading="lazy">
+                    <img src="imagens/projeto-4-thumb.jpg" alt="Divisória vidro em corporativo" loading="lazy" width="300" height="300">
                 </a>
                 <a href="imagens/projeto-5.jpg" class="galeria-item" aria-label="Reforma residencial">
-                    <img src="imagens/projeto-5-thumb.jpg" alt="Reforma completa residencial" loading="lazy">
+                    <img src="imagens/projeto-5-thumb.jpg" alt="Reforma completa residencial" loading="lazy" width="300" height="300">
                 </a>
                 <a href="imagens/projeto-6.jpg" class="galeria-item" aria-label="Acabamento premium">
-                    <img src="imagens/projeto-6-thumb.jpg" alt="Acabamento premium em loft" loading="lazy">
+                    <img src="imagens/projeto-6-thumb.jpg" alt="Acabamento premium em loft" loading="lazy" width="300" height="300">
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Depoimentos (Todos Preservados) -->
     <section class="depoimentos" id="depoimentos" aria-labelledby="depoimentos-title">
         <div class="container">
-            <h2>Depoimentos de Clientes</h2>
-            <p class="section-subtitle">A satisfação de quem confia no nosso trabalho</p>
+            <h2 id="depoimentos-title">Depoimentos de Clientes</h2>
             <div class="depoimentos-grid">
                 <article class="depoimento-card">
                     <p class="depoimento-texto">"A Quintilhanos transformou meu projeto com qualidade impecável. Atendimento profissional e excelente. Recomendo!"</p>
@@ -571,53 +350,51 @@
         </div>
     </section>
 
-    <!-- FAQ Completo (Todas as perguntas originais) -->
     <section class="faq" id="faq" aria-labelledby="faq-title">
         <div class="container">
-            <h2>Dúvidas Frequentes</h2>
-            <p class="section-subtitle">Esclareça os principais pontos sobre nossos serviços</p>
+            <h2 id="faq-title">Dúvidas Frequentes</h2>
             <div class="faq-items">
                 <details class="faq-item" open>
-                    <summary>Qual é a diferença entre drywall premium e convencional?</summary>
+                    <summary><strong>Qual é a diferença entre drywall premium e convencional?</strong></summary>
                     <p>O drywall premium oferece isolamento acústico superior, resistência ao fogo (RF-60) e acabamentos mais sofisticados com durabilidade estendida.</p>
                 </details>
 
                 <details class="faq-item">
-                    <summary>Quanto tempo leva uma reforma completa?</summary>
+                    <summary><strong>Quanto tempo leva uma reforma completa?</strong></summary>
                     <p>O tempo varia conforme escopo. Uma pintura leva 2-3 dias. Uma reforma completa pode levar 2-4 semanas. Oferecemos cronograma preciso após levantamento.</p>
                 </details>
 
                 <details class="faq-item">
-                    <summary>Vocês oferecem orçamento gratuito?</summary>
+                    <summary><strong>Vocês oferecem orçamento gratuito?</strong></summary>
                     <p>Sim! Oferecemos consultoria gratuita e orçamento detalhado após visita técnica ao seu espaço.</p>
                 </details>
 
                 <details class="faq-item">
-                    <summary>Qual é a garantia dos serviços?</summary>
+                    <summary><strong>Qual é a garantia dos serviços?</strong></summary>
                     <p>5 anos de garantia com cobertura de material e mão de obra. Incluímos suporte técnico prioritário.</p>
                 </details>
 
                 <details class="faq-item">
-                    <summary>Vocês trabalham com residências e comércios?</summary>
+                    <summary><strong>Vocês trabalham com residências e comércios?</strong></summary>
                     <p>Sim! Experiência em residencial, comercial, corporativo e industrial. Adaptamos soluções para cada projeto.</p>
                 </details>
 
                 <details class="faq-item">
-                    <summary>Como solicitar um orçamento?</summary>
+                    <summary><strong>Como solicitar um orçamento?</strong></summary>
                     <p>Clique no botão WhatsApp, preencha o formulário ou ligue. Uma profissional agendará visita e apresentará a melhor solução.</p>
                 </details>
             </div>
         </div>
     </section>
 
-    <!-- Contato e Formulário Completo Original -->
     <section class="contato" id="contato" aria-labelledby="contato-title">
         <div class="container">
             <div class="contato-grid">
                 <article class="contato-info">
-                    <h2>Entre em Contato</h2>
+                    <h2 id="contato-title">Entre em Contato</h2>
                     <p>Agende sua consultoria gratuita e descubra como transformar seu espaço.</p>
-                    <div class="contato-items" style="margin-top: 24px;">
+                    
+                    <div class="contato-items">
                         <p><strong>📞 Telefone:</strong> <a href="tel:+5547992772453">(47) 99277-2453</a></p>
                         <p><strong>💬 WhatsApp:</strong> <a href="https://wa.me/5547992772453">Enviar mensagem</a></p>
                         <p><strong>📧 Email:</strong> <a href="mailto:quintilhanoscontrucoeseacabame@gmail.com">contato@quintilhanos.com.br</a></p>
@@ -625,27 +402,27 @@
                     </div>
                 </article>
 
-                <form class="contato-form" id="formContato" novalidate>
+                <form class="contato-form" id="formContato" aria-labelledby="contato-title" novalidate>
                     <h3>Solicitar Orçamento</h3>
                     
                     <div class="form-group">
                         <label for="nome">Nome Completo *</label>
-                        <input type="text" id="nome" name="nome" required placeholder="Seu nome">
+                        <input type="text" id="nome" name="nome" required aria-required="true" placeholder="Seu nome">
                     </div>
 
                     <div class="form-group">
                         <label for="email">Email *</label>
-                        <input type="email" id="email" name="email" required placeholder="seu@email.com">
+                        <input type="email" id="email" name="email" required aria-required="true" placeholder="seu@email.com">
                     </div>
 
                     <div class="form-group">
                         <label for="telefone">Telefone/WhatsApp *</label>
-                        <input type="tel" id="telefone" name="telefone" required placeholder="(47) 99999-9999">
+                        <input type="tel" id="telefone" name="telefone" required aria-required="true" placeholder="(11) 99999-9999">
                     </div>
 
                     <div class="form-group">
                         <label for="servico">Serviço de Interesse *</label>
-                        <select id="servico" name="servico" required>
+                        <select id="servico" name="servico" required aria-required="true">
                             <option value="">Selecione um serviço</option>
                             <option value="drywall">Drywall Premium</option>
                             <option value="pintura">Pintura Premium</option>
@@ -657,23 +434,22 @@
 
                     <div class="form-group">
                         <label for="mensagem">Mensagem</label>
-                        <textarea id="mensagem" name="mensagem" rows="4" placeholder="Descreva seu projeto..."></textarea>
+                        <textarea id="mensagem" name="mensagem" rows="5" placeholder="Descreva seu projeto..."></textarea>
                     </div>
 
-                    <button type="submit" class="btn-submit">Solicitar Orçamento</button>
+                    <button type="submit" class="btn btn-primary btn-lg">Solicitar Orçamento</button>
                     <p class="form-disclaimer">Responderemos em até 2 horas.</p>
                 </form>
             </div>
         </div>
     </section>
 
-    <!-- Footer Completo Redesenhado -->
     <footer class="footer" role="contentinfo">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
                     <h4>Quintilhanos</h4>
-                    <p style="font-size: 0.9rem; max-width: 250px; line-height: 1.5;">Soluções premium em drywall, pintura e acabamentos sofisticados.</p>
+                    <p>Soluções premium em drywall, pintura e acabamentos sofisticados.</p>
                 </div>
                 <div class="footer-section">
                     <h4>Navegação</h4>
@@ -681,13 +457,16 @@
                         <li><a href="#servicos">Serviços</a></li>
                         <li><a href="#diferenciais">Diferenciais</a></li>
                         <li><a href="#galeria">Galeria</a></li>
+                        <li><a href="#depoimentos">Depoimentos</a></li>
+                        <li><a href="#faq">FAQ</a></li>
                         <li><a href="#contato">Contato</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h4>Contato</h4>
                     <p>📞 <a href="tel:+5547992772453">(47) 99277-2453</a></p>
-                    <p>📧 <a href="mailto:quintilhanoscontrucoeseacabame@gmail.com">E-mail Comercial</a></p>
+                    <p>💬 <a href="https://wa.me/5547992772453">WhatsApp</a></p>
+                    <p>📧 <a href="mailto:quintilhanoscontrucoeseacabame@gmail.com">quintilhanoscontrucoeseacabame@gmail.com</a></p>
                 </div>
             </div>
             <div class="footer-bottom">
